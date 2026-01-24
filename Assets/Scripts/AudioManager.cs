@@ -29,6 +29,15 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    public void playERM()
+    {
+        playSound("ERM_LOW_0", 1, 1);
+    }
+    public void playFakeERM()
+    {
+        playSound("FAKE_ERM_LOW_0", 1, 1);
+    }
+
     public void playSound(string name)
     {
         playSound(name, 1, 1);
