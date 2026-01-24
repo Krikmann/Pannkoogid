@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.44, y: 0.44, z: 0.44}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2744764284793481472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 6740211819378232837}
   - component: {fileID: 7861077664299009456}
   - component: {fileID: 6302308045597118688}
+  - component: {fileID: 4091456719213330800}
   m_Layer: 0
   m_Name: Visitor
   m_TagString: Visitor
@@ -299,6 +300,7 @@ MonoBehaviour:
         m_CallState: 2
   visitorPanel: {fileID: 0}
   visitorCamera: {fileID: 5134978984640354751}
+  playerCamera: {fileID: 0}
 --- !u!61 &7861077664299009456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -357,4 +359,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5449aa4a07f13334daa06ee43b7f3760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCParent
+  outsideCollider: {fileID: 0}
+  insideColliders: []
   moveSpeed: 1
+--- !u!95 &4091456719213330800
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440659758063113422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e84b7b2586fe80e458201d3677f24020, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

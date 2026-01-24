@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class VisitorSpawner : MonoBehaviour
 {
+    public int UniqueTellIndex;
     public int visitorCount;
     public GameObject visitorPrefab;
 
@@ -20,7 +23,10 @@ public class VisitorSpawner : MonoBehaviour
                 0.0f
             );
             visitor.GetComponent<Selectable>().visitorPanel = visitorPanel;
-            visitor.GetComponent<NPCParent>().outsideCollider = visitorBounds;
+            NPCParent npc = visitor.GetComponent<NPCParent>();
+            npc.outsideCollider = visitorBounds;
+            // npc.uniqueTellIndex = UniqueTellIndex;
+            // if (i == 0) npc.isImpostor = true;
         }
     }
 }
