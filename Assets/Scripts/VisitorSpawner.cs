@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class VisitorSpawner : MonoBehaviour
 {
-    public int UniqueTellIndex;
+    public int uniqueTellIndex;
     public int visitorCount;
     public GameObject visitorPrefab;
 
@@ -25,8 +25,8 @@ public class VisitorSpawner : MonoBehaviour
             visitor.GetComponent<Selectable>().visitorPanel = visitorPanel;
             NPCParent npc = visitor.GetComponent<NPCParent>();
             npc.outsideCollider = visitorBounds;
-            // npc.uniqueTellIndex = UniqueTellIndex;
-            // if (i == 0) npc.isImpostor = true;
+            npc.uniqueTellIndex = uniqueTellIndex;
+            if (i == 0) npc.isImpostor = true;
         }
     }
 }

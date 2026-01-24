@@ -26,6 +26,9 @@ public class WalkingChild : NPCParent.IState
         {
             direction = SnapToCardinal(direction);
         }
+        Animator animator = npc.GetComponent<Animator>();
+        if (susAnima == false) animator.SetTrigger("Bounce");
+        else animator.SetTrigger("Walk");
         npc.StartCoroutine(WalkForDuration());
     }
 
@@ -33,14 +36,7 @@ public class WalkingChild : NPCParent.IState
     {
         if (isWalking)
         {
-/*
 
-KRISTO, siin toimub kõndimine
-
-susAnima = 0 -> kasuta norm
-susAnima = 1 -> kasuta sus animatsiooni
-
-*/
             Debug.Log("NPC is walking... " + direction + " Speed: " + moveSpeed);
             Vector2 newPosition = (Vector2)npc.transform.position + direction * moveSpeed * Time.deltaTime;
 
