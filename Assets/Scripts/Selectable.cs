@@ -49,6 +49,8 @@ public class Selectable : MonoBehaviour
         MainCamera.enabled = false;
         visitorPanel.SetActive(true);
         mouse.SetCamera(visitorCamera);
+
+
     }
 
     public void ZoomOut()
