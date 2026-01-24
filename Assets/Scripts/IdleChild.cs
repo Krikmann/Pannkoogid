@@ -21,7 +21,8 @@ public class IdleChild : NPCParent.IState
     public void Update()
     {
         if (isIdle)
-        {            
+        {
+//  KRISTO, pane idle animatsioon
             Debug.Log("NPC is idling");
         }
     }
