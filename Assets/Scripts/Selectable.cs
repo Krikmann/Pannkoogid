@@ -1,30 +1,65 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class Selectable : MonoBehaviour
 {
+    [SerializeField] private UnityEvent clicked;
+    private MouseInputProvider mouse;
+
+    private BoxCollider2D collider;
+
+    private Camera[] cameras;
+
     public GameObject visitorPanel;
     public Camera visitorCamera;
 
-    private Camera mainCam;
-    
     private void Awake()
     {
-        mainCam = Camera.main;
+        cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
+
+        collider = GetComponent<BoxCollider2D>();
+        Debug.Log("Box " + collider.bounds);
+        mouse = FindFirstObjectByType<MouseInputProvider>();
+        mouse.Clicked += MouseOnClicked;
+    }
+
+    private void MouseOnClicked()
+    {
+        Debug.Log("Mouse: " + mouse.WorldPosition + ", Collider: " + collider.bounds);
+        Debug.Log("MousePos: " + mouse.WorldPosition);
+        if (collider.OverlapPoint(mouse.WorldPosition))
+        {
+            Debug.Log("Invoke");
+            ZoomIn();
+        }
+        else
+        {
+            Debug.Log("click not in bounds");
+        }
     }
 
     public void ZoomIn()
     {
-        mainCam.enabled = false;
         visitorCamera.enabled = true;
-        visitorPanel.SetActive(true);
-        SceneManager.LoadScene(SceneRefs.Instance.MainMenu);
+
+        foreach (var cam in cameras)
+        {
+            if (cam != visitorCamera)
+                cam.enabled = false;
+        }
+        //visitorPanel.SetActive(true);
     }
 
     public void ZoomOut()
     {
-        mainCam.enabled = true;
+        foreach (var cam in cameras)
+        {
+            if (cam != visitorCamera)
+                cam.enabled = true;
+        }
+
         visitorCamera.enabled = false;
-        visitorPanel.SetActive(false);
+        //visitorPanel.SetActive(false);
     }
 }
