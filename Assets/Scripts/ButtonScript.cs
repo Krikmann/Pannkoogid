@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -7,6 +8,9 @@ public class ButtonScript : MonoBehaviour
     public GameObject visitor;
     public TextMeshProUGUI IdCardText;
     public Image CharacterImage;
+
+    private bool IDCardOpen = false;
+    public GameObject IDCardPanel;
 
     private void Awake()
     {
@@ -19,6 +23,13 @@ public class ButtonScript : MonoBehaviour
         {
             GameEvent.current.onZoomedIn -= SetCurrentVisitor;
         }
+    }
+
+    private void Start()
+    {
+        IDCardPanel = gameObject.transform.GetChild(2).gameObject;
+        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
     }
 
     private void SetCurrentVisitor(GameObject visitor)
@@ -57,7 +68,10 @@ public class ButtonScript : MonoBehaviour
 
     public void Test2()
     {
-       
+        Animator animator = IDCardPanel.GetComponent<Animator>();
+        if (IDCardOpen) animator.SetTrigger("Close");
+        else  animator.SetTrigger("Open");
+        IDCardOpen = !IDCardOpen;
     }
 
     public void Suudi()
