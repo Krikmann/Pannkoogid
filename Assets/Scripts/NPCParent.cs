@@ -13,9 +13,11 @@ public class NPCParent : MonoBehaviour
         public void Exit();
     }
     private IState currentState; // Current state reference
-    private string[] states = { "move", "speak"};
+    private string[] states = { "move", "speak", "idle", "bounce"};
     private WalkingChild walkingState;
     private SpeakingChild speakingState;
+    private IdleChild idleState;
+    private BouncingChild bouncingState;
 
     public float moveSpeed;
     private void Start()
@@ -25,6 +27,10 @@ public class NPCParent : MonoBehaviour
         walkingState.WalkingState(this); // Pass the NPC reference
         speakingState = new SpeakingChild();
         speakingState.SpeakingState(this);
+        idleState = new IdleChild();
+        idleState.IdleState(this);
+        bouncingState = new BouncingChild();
+        bouncingState.BouncingState(this);
         ChangeState(walkingState); // Start with walking state
     }
     private void Update()
@@ -45,15 +51,17 @@ public class NPCParent : MonoBehaviour
                     break;
                 case "speak":
                     newState = speakingState; // Use existing instance
+                    break;                
+                case "idle":
+                    newState = idleState; // Use existing instance
+                    break;                
+                case "bounce":
+                    newState = bouncingState; // Use existing instance
                     break;
                 // Add cases for other actions (e.g., Speak, Idle)
             }
         }
         currentState = newState; // Change to the new state
         currentState.Enter(); // Enter the new state
-    }
-    public void speakingAction()
-    {
-        ChangeState(speakingState);
     }
 }

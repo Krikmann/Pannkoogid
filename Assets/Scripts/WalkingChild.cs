@@ -4,7 +4,7 @@ using System.Collections;
 public class WalkingChild : NPCParent.IState
 {
     private NPCParent npc;
-    private float duration = 1f; // Duration to walk
+    private float duration = Random.Range(1f,2.3f); // Duration to walk
     private bool isWalking = false;
     private Vector2 direction;
 
