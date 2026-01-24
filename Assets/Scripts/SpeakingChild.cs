@@ -7,10 +7,16 @@ public class SpeakingChild : NPCParent.IState
     private float duration = 1f;
     private bool isSpeaking = false;
     public float volume=0.5f;
+    private bool sussyBool;
 
     public void SpeakingState(NPCParent npc)
     {
         this.npc = npc;
+        sussyBool = npc.sussyBoolList[1];
+        if (sussyBool)
+        {
+            volume *= 2;
+        }
     }
 
     public void Enter()

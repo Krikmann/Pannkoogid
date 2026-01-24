@@ -15,7 +15,7 @@ public class NPCParent : MonoBehaviour
     }
     private IState currentState; // Current state reference
     private string[] states = { "move", "speak", "idle"};
-    private List<bool> sussyBool;
+    public List<bool> sussyBoolList;
     private WalkingChild walkingState;
     private SpeakingChild speakingState;
     private IdleChild idleState;
@@ -23,7 +23,7 @@ public class NPCParent : MonoBehaviour
     public float moveSpeed;
     private void Start()
     {
-        sussyBool = CreateRandomBooleanList(states.Length);
+        sussyBoolList = CreateRandomBooleanList(states.Length);
         walkingState = new WalkingChild();
         walkingState.WalkingState(this);
         speakingState = new SpeakingChild();

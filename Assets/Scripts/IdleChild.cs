@@ -4,7 +4,7 @@ using System.Collections;
 public class IdleChild : NPCParent.IState
 {
     private NPCParent npc;
-    private float duration = Random.Range(1f,2.3f); // Duration to walk
+    private float duration = Random.Range(0.5f,1.3f);
     private bool isIdle = false;
 
     public void IdleState(NPCParent npc)
