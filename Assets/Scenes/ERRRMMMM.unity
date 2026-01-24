@@ -1569,11 +1569,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: sounds.Array.data[1].name
-      value: ERM_LOW_0
+      value: ERM_0
       objectReference: {fileID: 0}
     - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: sounds.Array.data[2].name
-      value: FAKE_ERM_LOW_0
+      value: FAKE_ERM_0
       objectReference: {fileID: 0}
     - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: sounds.Array.data[1].volume
