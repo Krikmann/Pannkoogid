@@ -5,6 +5,11 @@ using UnityEngine;
 public class NPCParent : MonoBehaviour
 {
     // Start is called before the first frame update
+    public interface IState{
+        void Enter();
+        void Update();
+        void Exit();
+    }
     private string[] states = { "move", "speak", "idle", "test"};
     string state = "idle";
     bool working = false;

@@ -1,12 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
-public class WalkingChild : IState
+public class WalkingChild : MonoBehaviour
 {
-    private NPC npc;
+    private NPCParent npc;
     private float duration = 5f; // Duration to walk
     private bool isWalking = false;
 
-    public WalkingState(NPC npc)
+    public void WalkingState(NPCParent npc)
     {
         this.npc = npc;
     }
@@ -36,6 +37,5 @@ public class WalkingChild : IState
     {
         yield return new WaitForSeconds(duration);
         // After walking for the specified duration, transition to another state, e.g., Idle
-        npc.ChangeState(StateType.Idle);
     }
 }
