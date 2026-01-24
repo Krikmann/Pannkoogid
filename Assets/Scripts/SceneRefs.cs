@@ -4,5 +4,9 @@ public static class SceneRefs
     public const int StartingCutscene = 1;
     public const int Level1 = 2;
     public const int Level2 = 3;
+    public const int Level3 = 4;
+    public const int Level4 = 5;
+    public const int Level5 = 6;
+    public const int EndingCutscene = 7;
 }
 
