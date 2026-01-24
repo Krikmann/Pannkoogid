@@ -28,8 +28,11 @@ public class VisitorSpawner : MonoBehaviour
         Debug.Log("Active Scene name is: " + scene.name + "\nActive Scene index: " + scene.buildIndex);
         switch (scene.name)
         {
-            case ("Level1"): break;
-            case ("Level2"): amountTells = 3; visitorCount = 10; break;
+            case ("Level1"): amountTells = 3    ; visitorCount = 10; break;
+            case ("Level2"): amountTells = 3    ; visitorCount = 30; break;
+            case ("Level3"): amountTells = 2    ; visitorCount = 30; break;
+            case ("Level4"): amountTells = 2    ; visitorCount = 50; break;
+            case ("Level5"): amountTells = 1    ; visitorCount = 50; break;
         }
         for (int i = 0; i < amountTells; i++)
         {
