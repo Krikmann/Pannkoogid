@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class VisitorSpawner : MonoBehaviour
 {
+    Scene scene;
     [Tooltip(
         "0 - directionality\n" +
         "1 - bounce\n" +
@@ -11,6 +13,8 @@ public class VisitorSpawner : MonoBehaviour
         "3 - ERM... test\n" +
         "4 - ID kaardil nimi")]
     public List<int> tells;
+    public int amountTells;
+    public List<int> chosenTells;
     public int visitorCount;
     public GameObject visitorPrefab;
 
@@ -20,6 +24,25 @@ public class VisitorSpawner : MonoBehaviour
     
     private void Start()
     {
+        scene = SceneManager.GetActiveScene();
+        Debug.Log("Active Scene name is: " + scene.name + "\nActive Scene index: " + scene.buildIndex);
+        switch (scene.name)
+        {
+            case ("Level1"): break;
+            case ("Level2"): amountTells = 3; visitorCount = 10; break;
+        }
+        for (int i = 0; i < amountTells; i++)
+        {
+            int temp = Random.Range(0,4);
+            if (chosenTells.Contains(temp))
+            {
+                i--;
+            } else
+            {
+                chosenTells.Add(temp);
+                tells.Add(temp);
+            }
+        }
         for (int i = 0; i < visitorCount; i++)
         {
             GameObject visitor = Instantiate(visitorPrefab);
