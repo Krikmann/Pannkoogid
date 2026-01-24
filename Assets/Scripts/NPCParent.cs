@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class NPCParent : MonoBehaviour
 {
     public InputActionReference selectAction;
 
