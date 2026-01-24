@@ -1,14 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 
 public class Selectable : MonoBehaviour
 {
     [SerializeField] private UnityEvent clicked;
     private MouseInputProvider mouse;
-
     private BoxCollider2D collider;
-
     private Camera[] cameras;
 
     public GameObject visitorPanel;
@@ -48,7 +45,7 @@ public class Selectable : MonoBehaviour
             if (cam != visitorCamera)
                 cam.enabled = false;
         }
-        //visitorPanel.SetActive(true);
+        visitorPanel.SetActive(true);
     }
 
     public void ZoomOut()
@@ -60,6 +57,6 @@ public class Selectable : MonoBehaviour
         }
 
         visitorCamera.enabled = false;
-        //visitorPanel.SetActive(false);
+        visitorPanel.SetActive(false);
     }
 }

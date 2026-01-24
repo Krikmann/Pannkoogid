@@ -4,6 +4,10 @@ public class VisitorSpawner : MonoBehaviour
 {
     public int visitorCount;
     public GameObject visitorPrefab;
+
+    public GameObject visitorPanel;
+
+    public PolygonCollider2D visitorBounds;
     
     private void Start()
     {
@@ -15,6 +19,8 @@ public class VisitorSpawner : MonoBehaviour
                 Random.Range(-2, 2f),
                 0.0f
             );
+            visitor.GetComponent<Selectable>().visitorPanel = visitorPanel;
+            visitor.GetComponent<NPCParent>().outsideCollider = visitorBounds;
         }
     }
 }
