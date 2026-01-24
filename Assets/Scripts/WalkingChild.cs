@@ -7,24 +7,28 @@ public class WalkingChild : NPCParent.IState
     private float duration = Random.Range(1f,2.3f); // Duration to walk
     private bool isWalking = false;
     private Vector2 direction;
-    private bool sussyBool;
-    private float moveSpeed;
+    private bool susSuund;
+    private bool susAnima;
+    private float moveSpeed = Random.Range(1f,2f);  
 
     public void WalkingState(NPCParent npc)
     {
         this.npc = npc;
-        sussyBool = npc.sussyBoolList[0];
-        moveSpeed = npc.moveSpeed;
-        if (sussyBool)
-        {
-            moveSpeed *= 10;
-        }
+        susSuund = npc.sussyBoolList[0];
+        susAnima = npc.sussyBoolList[1];
     }
 
     public void Enter()
     {
         isWalking = true;
         direction = Random.insideUnitCircle.normalized;
+        if (susSuund)
+        {
+            direction = SnapToCardinal(direction);
+        }
+        Animator animator = npc.GetComponent<Animator>();
+        if (susAnima == false) animator.SetTrigger("Bounce");
+        else animator.SetTrigger("Walk");
         npc.StartCoroutine(WalkForDuration());
     }
 
@@ -32,11 +36,7 @@ public class WalkingChild : NPCParent.IState
     {
         if (isWalking)
         {
-/*
 
-KRISTO, siin toimub kõndimine
-
-*/
             Debug.Log("NPC is walking... " + direction + " Speed: " + moveSpeed);
             Vector2 newPosition = (Vector2)npc.transform.position + direction * moveSpeed * Time.deltaTime;
 
@@ -60,6 +60,21 @@ KRISTO, siin toimub kõndimine
 
             // Update the position
             npc.transform.position = newPosition;
+        }
+    }
+
+    private Vector2 SnapToCardinal(Vector2 direction)
+    {
+        // Check the absolute values of x and y to determine the nearest cardinal direction
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            // Snap to left or right
+            return direction.x > 0 ? Vector2.right : Vector2.left;
+        }
+        else
+        {
+            // Snap to up or down
+            return direction.y > 0 ? Vector2.up : Vector2.down;
         }
     }
 

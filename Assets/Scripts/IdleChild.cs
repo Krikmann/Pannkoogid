@@ -16,14 +16,11 @@ public class IdleChild : NPCParent.IState
     {
         isIdle = true;
         npc.StartCoroutine(IdleForDuration());
+        npc.GetComponent<Animator>().SetTrigger("Idle");
     }
 
     public void Update()
     {
-        if (isIdle)
-        {            
-            Debug.Log("NPC is idling");
-        }
     }
 
     public void Exit()
