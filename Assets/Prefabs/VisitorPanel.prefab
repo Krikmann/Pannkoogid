@@ -112,9 +112,9 @@ RectTransform:
   - {fileID: 7466353862470859828}
   m_Father: {fileID: 2320104642951235166}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -374, y: 0}
   m_SizeDelta: {x: 320, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6926252935439547829
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 996665443299633804}
   - component: {fileID: 2474377642649553017}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IDText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,15 +383,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lahe nimi ID kaardil
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 809dcf510f5f96248b1cf11cdc709b9a, type: 2}
+  m_sharedMaterial: {fileID: 3854595711583081656, guid: 809dcf510f5f96248b1cf11cdc709b9a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1735,3 +1735,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   visitor: {fileID: 0}
+  IdCardText: {fileID: 2474377642649553017}
+  CharacterImage: {fileID: 5553501024807956327}

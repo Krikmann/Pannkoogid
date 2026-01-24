@@ -1,8 +1,12 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
     public GameObject visitor;
+    public TextMeshProUGUI IdCardText;
+    public Image CharacterImage;
 
     private void Awake()
     {
@@ -20,6 +24,21 @@ public class ButtonScript : MonoBehaviour
     private void SetCurrentVisitor(GameObject visitor)
     {
         this.visitor = visitor;
+        SpriteRenderer SR = visitor.GetComponentInChildren<SpriteRenderer>();
+        if(SR != null )
+        {
+            CharacterImage.sprite = SR.sprite;
+        }
+
+        NPCParent npc = visitor.GetComponent<NPCParent>();
+        if (npc.sussyBoolList[4]) // Erm index
+        {
+            IdCardText.text = "Impostor kaardil";
+        }
+        else
+        {
+            IdCardText.text = "Visitor kaardil";
+        }
     }
 
 
@@ -38,7 +57,7 @@ public class ButtonScript : MonoBehaviour
 
     public void Test2()
     {
-        Debug.Log("Test2");
+       
     }
 
     public void Suudi()
