@@ -8,7 +8,6 @@ public class WalkingChild : NPCParent.IState
     private bool isWalking = false;
     private Vector2 direction;
 
-
     public void WalkingState(NPCParent npc)
     {
         this.npc = npc;
@@ -16,31 +15,49 @@ public class WalkingChild : NPCParent.IState
 
     public void Enter()
     {
-        isWalking = true; // Start walking
+        isWalking = true;
         direction = Random.insideUnitCircle.normalized;
         npc.StartCoroutine(WalkForDuration());
     }
 
     public void Update()
     {
-        // Update walking animation or movement logic here
         if (isWalking)
-        {
-            Debug.Log("NPC is walking...");
-            npc.transform.Translate(direction * npc.moveSpeed * Time.deltaTime);
+        {            
+            Debug.Log("NPC is walking... " + direction + " Speed: " + npc.moveSpeed);
+            Vector2 newPosition = (Vector2)npc.transform.position + direction * npc.moveSpeed * Time.deltaTime;
+
+            // Check if the new position is inside the polygon collider
+            if (!npc.outsideCollider.OverlapPoint(newPosition))
+            {
+                // Invert direction if outside the collider
+                direction = -direction; 
+                newPosition = (Vector2)npc.transform.position + direction * npc.moveSpeed * Time.deltaTime;
+            }
+            foreach (var insideCollider in npc.insideColliders)
+            {
+                if (insideCollider.OverlapPoint(newPosition))
+                {
+                    // Adjust direction if colliding with an inner collider
+                    direction = -direction;
+                    newPosition = (Vector2)npc.transform.position + direction * npc.moveSpeed * Time.deltaTime;
+                    break; // Exit the loop if we adjust the direction
+                }
+            }
+
+            // Update the position
+            npc.transform.position = newPosition;
         }
     }
 
     public void Exit()
     {
-        isWalking = false; // Stop walking actions
-        // Handle any exit logic if necessary
+        isWalking = false;
     }
 
     private IEnumerator WalkForDuration()
     {
         yield return new WaitForSeconds(duration);
         npc.ChangeState();
-        // After walking for the specified duration, transition to another state, e.g., Idle
     }
 }

@@ -4,15 +4,18 @@ using UnityEngine;
 public class NPCParent : MonoBehaviour
 {
     // Start is called before the first frame update
+    public PolygonCollider2D outsideCollider;
+    public PolygonCollider2D[] insideColliders;
+
     public interface IState{
         public void Enter();
         public void Update();
         public void Exit();
     }
     private IState currentState; // Current state reference
-    private string currentAction = "move";
-    private string[] states = { "move"};
+    private string[] states = { "move", "speak"};
     private WalkingChild walkingState;
+    private SpeakingChild speakingState;
 
     public float moveSpeed;
     private void Start()
@@ -20,6 +23,8 @@ public class NPCParent : MonoBehaviour
         // Initialize and change to the walking state
         walkingState = new WalkingChild();
         walkingState.WalkingState(this); // Pass the NPC reference
+        speakingState = new SpeakingChild();
+        speakingState.SpeakingState(this);
         ChangeState(walkingState); // Start with walking state
     }
     private void Update()
@@ -38,10 +43,17 @@ public class NPCParent : MonoBehaviour
                 case "move":
                     newState = walkingState; // Use existing instance
                     break;
+                case "speak":
+                    newState = speakingState; // Use existing instance
+                    break;
                 // Add cases for other actions (e.g., Speak, Idle)
             }
         }
         currentState = newState; // Change to the new state
         currentState.Enter(); // Enter the new state
+    }
+    public void speakingAction()
+    {
+        ChangeState(speakingState);
     }
 }
