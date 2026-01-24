@@ -7,27 +7,33 @@ public class NPCParent : MonoBehaviour
     // Start is called before the first frame update
     public PolygonCollider2D outsideCollider;
     public PolygonCollider2D[] insideColliders;
-
+    public int uniqueTellIndex;
+    public int tellListLength = 5-1;
+/*
+tell nimekiri:
+directionality; liikumis_anima; riided; "ERM" test; ID ask;
+*/
+    public bool isImpostor;
     public interface IState{
         public void Enter();
         public void Update();
         public void Exit();
     }
     private IState currentState; // Current state reference
-    private string[] states = { "move", "speak", "idle"};
+    private string[] states = { "move", "idle"};
     public List<bool> sussyBoolList;
     private WalkingChild walkingState;
-    private SpeakingChild speakingState;
+//    private SpeakingChild speakingState;
     private IdleChild idleState;
 
     public float moveSpeed;
     private void Start()
     {
-        sussyBoolList = CreateRandomBooleanList(states.Length);
+        sussyBoolList = CreateRandomBooleanList(tellListLength);
         walkingState = new WalkingChild();
         walkingState.WalkingState(this);
-        speakingState = new SpeakingChild();
-        speakingState.SpeakingState(this);
+//        speakingState = new SpeakingChild();
+//        speakingState.SpeakingState(this);
         idleState = new IdleChild();
         idleState.IdleState(this);
         ChangeState(walkingState); // Start with walking state
@@ -40,6 +46,13 @@ public class NPCParent : MonoBehaviour
         {
             bool randomValue = Random.Range(0f, 1f) > 0.5f; // Randomly assigns true or false
             tempList.Add(randomValue);
+        }
+        if (isImpostor)
+        {
+            tempList[uniqueTellIndex] = true;
+        } else
+        {
+            tempList[uniqueTellIndex] = false;
         }
 
         return tempList;
@@ -60,9 +73,9 @@ public class NPCParent : MonoBehaviour
                 case "move":
                     newState = walkingState; // Use existing instance
                     break;
-                case "speak":
-                    newState = speakingState; // Use existing instance
-                    break;
+//                case "speak":
+//                    newState = speakingState; // Use existing instance
+//                    break;
                 case "idle":
                     newState = idleState; // Use existing instance
                     break;
