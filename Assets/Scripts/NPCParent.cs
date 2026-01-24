@@ -1,5 +1,6 @@
 using System.Collections; 
 using UnityEngine;
+using System.Collections.Generic; // Add this line
 
 public class NPCParent : MonoBehaviour
 {
@@ -13,25 +14,35 @@ public class NPCParent : MonoBehaviour
         public void Exit();
     }
     private IState currentState; // Current state reference
-    private string[] states = { "move", "speak", "idle", "bounce"};
+    private string[] states = { "move", "speak", "idle"};
+    private List<bool> sussyBool;
     private WalkingChild walkingState;
     private SpeakingChild speakingState;
     private IdleChild idleState;
-    private BouncingChild bouncingState;
 
     public float moveSpeed;
     private void Start()
     {
-        // Initialize and change to the walking state
+        sussyBool = CreateRandomBooleanList(states.Length);
         walkingState = new WalkingChild();
-        walkingState.WalkingState(this); // Pass the NPC reference
+        walkingState.WalkingState(this);
         speakingState = new SpeakingChild();
         speakingState.SpeakingState(this);
         idleState = new IdleChild();
         idleState.IdleState(this);
-        bouncingState = new BouncingChild();
-        bouncingState.BouncingState(this);
         ChangeState(walkingState); // Start with walking state
+    }
+    private List<bool> CreateRandomBooleanList(int size)
+    {
+        List<bool> tempList = new List<bool>();
+
+        for (int i = 0; i < size; i++)
+        {
+            bool randomValue = Random.Range(0f, 1f) > 0.5f; // Randomly assigns true or false
+            tempList.Add(randomValue);
+        }
+
+        return tempList;
     }
     private void Update()
     {
@@ -51,14 +62,10 @@ public class NPCParent : MonoBehaviour
                     break;
                 case "speak":
                     newState = speakingState; // Use existing instance
-                    break;                
+                    break;
                 case "idle":
                     newState = idleState; // Use existing instance
-                    break;                
-                case "bounce":
-                    newState = bouncingState; // Use existing instance
                     break;
-                // Add cases for other actions (e.g., Speak, Idle)
             }
         }
         currentState = newState; // Change to the new state

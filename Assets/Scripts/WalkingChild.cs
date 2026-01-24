@@ -23,7 +23,12 @@ public class WalkingChild : NPCParent.IState
     public void Update()
     {
         if (isWalking)
-        {            
+        {
+/*
+
+KRISTO, siin toimub kõndimine
+
+*/
             Debug.Log("NPC is walking... " + direction + " Speed: " + npc.moveSpeed);
             Vector2 newPosition = (Vector2)npc.transform.position + direction * npc.moveSpeed * Time.deltaTime;
 
