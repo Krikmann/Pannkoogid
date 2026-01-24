@@ -76,6 +76,10 @@ public class ButtonScript : MonoBehaviour
 
     public void CloseIDCard()
     {
+        IDCardPanel = gameObject.transform.GetChild(2).gameObject;
+        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
+
         Animator animator = IDCardPanel.GetComponent<Animator>();
         if (IDCardOpen)
         {
