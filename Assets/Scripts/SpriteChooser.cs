@@ -9,28 +9,29 @@ public class SpriteChooser : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
-    private Vector2 lastPos;
+    private Vector2 _lastPos;
     
     private void Start()
     {
-        lastPos = transform.position;
+        _lastPos = transform.position;
         
         // Choose sprite
         NPCParent npc = gameObject.GetComponent<NPCParent>();
         _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
-        _spriteRenderer.sprite = npc.sussyBoolList[npc.uniqueTellIndex] ?   // kas on sussy käitumine 
+        _spriteRenderer.sprite = npc.sussyBoolList[2] ?   // kas on sussy käitumine (index on 2)
             valismaaSprites[Random.Range(0, valismaaSprites.Length)] :  // vali sussy sprite
             eestiSprites[Random.Range(0, eestiSprites.Length)]; // tavaline käitumine
     }
 
     private void Update()
     {
+        // rotate sprite towards facing direction
         Vector2 pos = transform.position;
-        Vector2 delta =  pos - lastPos;
+        Vector2 delta =  pos - _lastPos;
         if (Mathf.Abs(delta.x) > 0.00001f) 
             _spriteRenderer.flipX = delta.x < 0;
         
-        lastPos = pos;
+        _lastPos = pos;
     }
 }

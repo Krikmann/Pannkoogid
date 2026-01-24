@@ -89,7 +89,7 @@ SpriteRenderer:
   m_Size: {x: 3.5, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1735454874565550289
 GameObject:
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCParent
   outsideCollider: {fileID: 0}
   insideColliders: []
-  uniqueTellIndex: 0
+  impostorTells: 
   tellListLength: 4
   isImpostor: 0
   sussyBoolList: 
@@ -342,14 +342,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   eestiSprites:
-  - {fileID: 2181503799885496652, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: 2946985140877639280, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: -3468192198597553788, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: 6845492969078337012, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: 7860131563120228384, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
+  - {fileID: 2181503799885496652, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: 2946985140877639280, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: -3468192198597553788, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: 6845492969078337012, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: 7860131563120228384, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
   valismaaSprites:
-  - {fileID: -2349403593569660678, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: -8403428189043057948, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: -6843383390751605677, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: -4497869624359622211, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
-  - {fileID: 2290396692961339544, guid: e22fc636245ccb040b6a0a597c7dd320, type: 3}
+  - {fileID: -2349403593569660678, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: -8403428189043057948, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: -6843383390751605677, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: -4497869624359622211, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+  - {fileID: 2290396692961339544, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
