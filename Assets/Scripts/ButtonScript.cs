@@ -74,6 +74,17 @@ public class ButtonScript : MonoBehaviour
         IDCardOpen = !IDCardOpen;
     }
 
+    public void CloseIDCard()
+    {
+        Animator animator = IDCardPanel.GetComponent<Animator>();
+        if (IDCardOpen)
+        {
+            animator.SetTrigger("Close");
+            IDCardOpen = !IDCardOpen;
+        }
+
+    }
+
     public void Suudi()
     {
         Debug.Log("Suudi");
