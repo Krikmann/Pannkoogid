@@ -6,21 +6,23 @@ public class Selectable : MonoBehaviour
     [SerializeField] private UnityEvent clicked;
     private MouseInputProvider mouse;
     private BoxCollider2D collider;
-    private Camera[] cameras;
 
     public GameObject visitorPanel;
     public Camera visitorCamera;
-    public Camera playerCamera;
+    public Camera MainCamera;
+
+    private bool bZoomedIn = false;
 
     private void Awake()
     {
-        cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
-        playerCamera = GameObject.Find("Player").GetComponentInChildren<Camera>();
-
         collider = GetComponent<BoxCollider2D>();
         Debug.Log("Box " + collider.bounds);
         mouse = FindFirstObjectByType<MouseInputProvider>();
         mouse.Clicked += MouseOnClicked;
+
+        GameEvent.current.onZoomOutTriggered += ZoomOut;
+        GameEvent.current.onRequestedZoomOut += GlobalZoomOut;
+        MainCamera = Camera.main;
     }
 
     private void MouseOnClicked()
@@ -29,6 +31,8 @@ public class Selectable : MonoBehaviour
         Debug.Log("MousePos: " + mouse.WorldPosition);
         if (collider.OverlapPoint(mouse.WorldPosition))
         {
+            GameEvent.current.RequestZoomOut();
+
             Debug.Log("Invoke");
             ZoomIn();
         }
@@ -40,24 +44,36 @@ public class Selectable : MonoBehaviour
 
     public void ZoomIn()
     {
+        bZoomedIn=true;
         visitorCamera.enabled = true;
-
-        foreach (var cam in cameras)
-        {
-            if (cam != visitorCamera)
-                cam.enabled = false;
-        }
+        MainCamera.enabled = false;
         visitorPanel.SetActive(true);
+        mouse.SetCamera(visitorCamera);
     }
 
     public void ZoomOut()
     {
-        foreach (var cam in cameras)
-        {
-            if (cam == playerCamera)
-                cam.enabled = true;
-            else cam.enabled = false;
-        }
+        bZoomedIn = false;
+        MainCamera.enabled = true;
+        visitorCamera.enabled = false;
         visitorPanel.SetActive(false);
+        mouse.SetCamera(MainCamera);
+    }
+
+    private void GlobalZoomOut()
+    {
+        if (bZoomedIn)
+        {
+            ZoomOut();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (GameEvent.current != null)
+        {
+            GameEvent.current.onZoomOutTriggered -= ZoomOut;
+            GameEvent.current.onRequestedZoomOut -= GlobalZoomOut;
+        }
     }
 }
