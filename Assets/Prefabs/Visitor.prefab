@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 8422245742363719444}
   - component: {fileID: 6740211819378232837}
   - component: {fileID: 7861077664299009456}
+  - component: {fileID: 6302308045597118688}
   m_Layer: 0
   m_Name: Visitor
   m_TagString: Visitor
@@ -344,3 +345,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &6302308045597118688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440659758063113422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5449aa4a07f13334daa06ee43b7f3760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCParent
+  moveSpeed: 1
