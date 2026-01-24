@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class VisitorSpawner : MonoBehaviour
 {
+
+    Scene scene;
     public int uniqueTellIndex;
     public int visitorCount;
     public GameObject visitorPrefab;
@@ -14,6 +17,8 @@ public class VisitorSpawner : MonoBehaviour
     
     private void Start()
     {
+        scene = SceneManager.GetActiveScene();
+        Debug.Log("Active Scene name is: " + scene.name + "\nActive Scene index: " + scene.buildIndex);
         for (int i = 0; i < visitorCount; i++)
         {
             GameObject visitor = Instantiate(visitorPrefab);
