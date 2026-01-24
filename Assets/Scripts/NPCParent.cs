@@ -2,7 +2,7 @@
 using System.Collections; 
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class NPCParent : MonoBehaviour
 {
     // Start is called before the first frame update
     private string[] states = { "move", "speak", "idle", "test"};
