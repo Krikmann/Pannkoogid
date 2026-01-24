@@ -10,10 +10,12 @@ public class Selectable : MonoBehaviour
 
     public GameObject visitorPanel;
     public Camera visitorCamera;
+    public Camera playerCamera;
 
     private void Awake()
     {
         cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
+        playerCamera = GameObject.Find("Player").GetComponentInChildren<Camera>();
 
         collider = GetComponent<BoxCollider2D>();
         Debug.Log("Box " + collider.bounds);
@@ -52,11 +54,10 @@ public class Selectable : MonoBehaviour
     {
         foreach (var cam in cameras)
         {
-            if (cam != visitorCamera)
+            if (cam == playerCamera)
                 cam.enabled = true;
+            else cam.enabled = false;
         }
-
-        visitorCamera.enabled = false;
         visitorPanel.SetActive(false);
     }
 }
