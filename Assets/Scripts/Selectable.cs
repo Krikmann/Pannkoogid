@@ -50,7 +50,8 @@ public class Selectable : MonoBehaviour
         visitorPanel.SetActive(true);
         mouse.SetCamera(visitorCamera);
 
-
+        //pass this visitor as gameobject
+        GameEvent.current.ZoomedIn(this.gameObject);
     }
 
     public void ZoomOut()
