@@ -27,4 +27,10 @@ public class GameEvent : MonoBehaviour
             onRequestedZoomOut();
         }
     }
+
+    public event Action<GameObject> onZoomedIn;
+    public void ZoomedIn(GameObject visitor)
+    {
+        onZoomedIn?.Invoke(visitor);
+    }
 }

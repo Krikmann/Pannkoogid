@@ -31,11 +31,11 @@ public class AudioManager : MonoBehaviour
 
     public void playERM()
     {
-        playSound("ERM_LOW_0", 1, 1);
+        playSound("ERM_0", 1, 1);
     }
     public void playFakeERM()
     {
-        playSound("FAKE_ERM_LOW_0", 1, 1);
+        playSound("FAKE_ERM_0", 1, 1);
     }
 
     public void playSound(string name)
