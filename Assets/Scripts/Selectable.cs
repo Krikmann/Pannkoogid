@@ -4,21 +4,20 @@ using UnityEngine.SceneManagement;
 
 public class Selectable : MonoBehaviour
 {
-    [SerializeField]
-    private UnityEvent clicked;
+    [SerializeField] private UnityEvent clicked;
     private MouseInputProvider mouse;
 
     private BoxCollider2D collider;
-    
+
+    private Camera[] cameras;
+
     public GameObject visitorPanel;
     public Camera visitorCamera;
 
-    private Camera playerCamera;
-    
     private void Awake()
     {
-        playerCamera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
-        
+        cameras = FindObjectsByType<Camera>(FindObjectsSortMode.None);
+
         collider = GetComponent<BoxCollider2D>();
         Debug.Log("Box " + collider.bounds);
         mouse = FindFirstObjectByType<MouseInputProvider>();
@@ -36,21 +35,30 @@ public class Selectable : MonoBehaviour
         }
         else
         {
-            Debug.DrawLine(collider.bounds.min, collider.bounds.max, Color.red, 2f);
             Debug.Log("click not in bounds");
         }
     }
 
     public void ZoomIn()
     {
-        playerCamera.enabled = false;
-        visitorCamera.enabled = true; 
+        visitorCamera.enabled = true;
+
+        foreach (var cam in cameras)
+        {
+            if (cam != visitorCamera)
+                cam.enabled = false;
+        }
         //visitorPanel.SetActive(true);
     }
 
     public void ZoomOut()
     {
-        playerCamera.enabled = true;
+        foreach (var cam in cameras)
+        {
+            if (cam != visitorCamera)
+                cam.enabled = true;
+        }
+
         visitorCamera.enabled = false;
         //visitorPanel.SetActive(false);
     }

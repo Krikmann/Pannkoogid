@@ -7,7 +7,7 @@
             "id": "08a012a0-98cd-4300-b17c-d10a0770fe1f",
             "actions": [
                 {
-                    "name": "Select",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "71cf4631-dfe2-4d2b-adb7-fa0fc5a196a6",
                     "expectedControlType": "",
@@ -23,20 +23,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "MousePos",
+                    "type": "Value",
+                    "id": "f4d25968-767a-45dd-9bd8-cd5348364e99",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "07633d3e-54b0-4613-a18a-64a04f26c3a3",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Mouse&Keyboard",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "319c9598-a8a3-4c49-9864-98c7e86f3d31",
@@ -91,6 +89,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4691db93-456c-4665-9ba3-097fa6c5a7a8",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse&Keyboard",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c977f2ef-3244-4d58-a536-9bd70b734a0d",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Mouse&Keyboard",
+                    "action": "MousePos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
