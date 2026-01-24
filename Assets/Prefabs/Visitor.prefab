@@ -325,7 +325,7 @@ MonoBehaviour:
   outsideCollider: {fileID: 0}
   insideColliders: []
   impostorTells: 
-  tellListLength: 4
+  tellListLength: 5
   isImpostor: 0
   sussyBoolList: 
   moveSpeed: 1
