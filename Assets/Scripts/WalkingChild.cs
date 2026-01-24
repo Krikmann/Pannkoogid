@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class WalkingChild : MonoBehaviour
+public class WalkingChild : NPCParent.IState
 {
     private NPCParent npc;
-    private float duration = 5f; // Duration to walk
+    private float duration = 1f; // Duration to walk
     private bool isWalking = false;
+    private Vector2 direction;
+
 
     public void WalkingState(NPCParent npc)
     {
@@ -15,6 +17,7 @@ public class WalkingChild : MonoBehaviour
     public void Enter()
     {
         isWalking = true; // Start walking
+        direction = Random.insideUnitCircle.normalized;
         npc.StartCoroutine(WalkForDuration());
     }
 
@@ -24,6 +27,7 @@ public class WalkingChild : MonoBehaviour
         if (isWalking)
         {
             Debug.Log("NPC is walking...");
+            npc.transform.Translate(direction * npc.moveSpeed * Time.deltaTime);
         }
     }
 
@@ -36,6 +40,7 @@ public class WalkingChild : MonoBehaviour
     private IEnumerator WalkForDuration()
     {
         yield return new WaitForSeconds(duration);
+        npc.ChangeState();
         // After walking for the specified duration, transition to another state, e.g., Idle
     }
 }

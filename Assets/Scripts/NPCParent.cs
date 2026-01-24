@@ -1,4 +1,3 @@
-
 using System.Collections; 
 using UnityEngine;
 
@@ -6,71 +5,43 @@ public class NPCParent : MonoBehaviour
 {
     // Start is called before the first frame update
     public interface IState{
-        void Enter();
-        void Update();
-        void Exit();
+        public void Enter();
+        public void Update();
+        public void Exit();
     }
-    private string[] states = { "move", "speak", "idle", "test"};
-    string state = "idle";
-    bool working = false;
+    private IState currentState; // Current state reference
+    private string currentAction = "move";
+    private string[] states = { "move"};
+    private WalkingChild walkingState;
 
     public float moveSpeed;
-    private Vector2 targetPosition;
-    void Start()
+    private void Start()
     {
-        targetPosition = new Vector2(0.0f, 0.0f);
-        StartCoroutine(WaitAndPrint());
+        // Initialize and change to the walking state
+        walkingState = new WalkingChild();
+        walkingState.WalkingState(this); // Pass the NPC reference
+        ChangeState(walkingState); // Start with walking state
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (!working){
-            int ChosenAction = Random.Range(0,states.Length);
-            Debug.Log(states[ChosenAction]);
-            state = states[ChosenAction];
-        }
-        PerformRandomAction();
+        currentState?.Update(); // Call Update method of the current state
     }
-
-    IEnumerator WaitAndPrint() 
+    public void ChangeState(IState newState = null)
     {
-        yield return new WaitForSeconds(5);
-        Debug.Log("Waited 5 seconds!");
-    }
-
-    void PerformRandomAction(){
-
-        switch (state)
+        currentState?.Exit(); // Exit the current state first
+        if (newState == null) 
         {
-            case "idle": IdleAction(); break;
-            case "move": MoveAction(); break;
+            int chosenIndex = Random.Range(0, states.Length);
+            string currentAction = states[chosenIndex];
+            switch (currentAction)
+            {
+                case "move":
+                    newState = walkingState; // Use existing instance
+                    break;
+                // Add cases for other actions (e.g., Speak, Idle)
+            }
         }
-    }
-
-    void MoveAction()
-    {
-        float elapsedTime = 0f;
-        working = true;
-        Vector2 direction = Random.insideUnitCircle;
-
-        while (elapsedTime < 5f)
-        {
-            elapsedTime += Time.deltaTime;
-            transform.Translate(direction * moveSpeed * Time.deltaTime);
-            WaitAndPrint();
-        }
-        working = false;
-    }
-    void IdleAction()
-    {
-        float elapsedTime = 0f;
-        working = true;
-                while (elapsedTime < 5000f)
-        {
-            elapsedTime += Time.deltaTime;
-            WaitAndPrint();
-        }
-        working = false;
+        currentState = newState; // Change to the new state
+        currentState.Enter(); // Enter the new state
     }
 }
