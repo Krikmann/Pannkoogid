@@ -37,12 +37,12 @@ public class ScenePicker : MonoBehaviour
     public void LoadMenu(){
         
         Resume();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneRefs.Instance.MainMenu);
     }
     public void LoadScene1(){
         
         Resume();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneRefs.Instance.Level1);
     }
     public void QuitGame()
     {

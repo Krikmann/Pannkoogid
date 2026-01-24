@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Selectable : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Selectable : MonoBehaviour
         mainCam.enabled = false;
         visitorCamera.enabled = true;
         visitorPanel.SetActive(true);
+        SceneManager.LoadScene(SceneRefs.Instance.MainMenu);
     }
 
     public void ZoomOut()
