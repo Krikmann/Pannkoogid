@@ -1,32 +1,47 @@
-using System.Collections; 
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic; // Add this line
 
 public class NPCParent : MonoBehaviour
 {
+    public static int DirectionIndex = 0;
+    public static int BounceIndex = 1;
+    public static int ClothesIndex = 2;
+    public static int ERMTestIndex = 3;
+    public static int IDTestIndex = 4;
+    
+    
     // Start is called before the first frame update
     public PolygonCollider2D outsideCollider;
     public PolygonCollider2D[] insideColliders;
-    public int uniqueTellIndex;
-    public int tellListLength = 5-1;
+    public List<int> impostorTells = new(); // tells 
+
+    public int tellListLength = 5; // we have 5 possible tells
+
 /*
 tell nimekiri:
 directionality; liikumis_anima; riided; "ERM" test; ID ask;
 */
     public bool isImpostor;
-    public interface IState{
+
+    public interface IState
+    {
         public void Enter();
         public void Update();
         public void Exit();
     }
+
     private IState currentState; // Current state reference
-    private string[] states = { "move", "idle"};
+    private string[] states = { "move", "idle" };
     public List<bool> sussyBoolList;
+
     private WalkingChild walkingState;
+
 //    private SpeakingChild speakingState;
     private IdleChild idleState;
 
     public float moveSpeed;
+
     private void Start()
     {
         sussyBoolList = CreateRandomBooleanList(tellListLength);
@@ -38,6 +53,7 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
         idleState.IdleState(this);
         ChangeState(walkingState); // Start with walking state
     }
+
     private List<bool> CreateRandomBooleanList(int size)
     {
         List<bool> tempList = new List<bool>();
@@ -47,24 +63,25 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
             bool randomValue = Random.Range(0f, 1f) > 0.5f; // Randomly assigns true or false
             tempList.Add(randomValue);
         }
-        if (isImpostor)
+        
+        // no random for impostor tells
+        foreach (int tell in impostorTells)
         {
-            tempList[uniqueTellIndex] = true;
-        } else
-        {
-            tempList[uniqueTellIndex] = false;
+            tempList[tell] = isImpostor;
         }
 
         return tempList;
     }
+
     private void Update()
     {
         currentState?.Update(); // Call Update method of the current state
     }
+
     public void ChangeState(IState newState = null)
     {
         currentState?.Exit(); // Exit the current state first
-        if (newState == null) 
+        if (newState == null)
         {
             int chosenIndex = Random.Range(0, states.Length);
             string currentAction = states[chosenIndex];
@@ -81,6 +98,7 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
                     break;
             }
         }
+
         currentState = newState; // Change to the new state
         currentState.Enter(); // Enter the new state
     }
