@@ -12,12 +12,12 @@ public class AudioTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            GlobalReferences.audioManager.playSound("ERM_LOW_0");
+            GlobalReferences.audioManager.playERM();//playSound("ERM_LOW_0");
         }
 
         if (Input.GetKeyDown(KeyCode.M))
         {
-            GlobalReferences.audioManager.playSound("FAKE_ERM_LOW_0");
+            GlobalReferences.audioManager.playFakeERM();//("FAKE_ERM_LOW_0");
         }
     }
 }
