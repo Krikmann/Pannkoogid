@@ -4,12 +4,12 @@ using System.Collections;
 public class WalkingChild : NPCParent.IState
 {
     private NPCParent npc;
-    private float duration = Random.Range(1f,2.3f); // Duration to walk
+    private float duration = Random.Range(1f, 4f); // Duration to walk
     private bool isWalking = false;
     private Vector2 direction;
     private bool susSuund;
     private bool susAnima;
-    private float moveSpeed = Random.Range(1f,2f);  
+    private float moveSpeed = Random.Range(1.4f,1.6f);  
 
     public void WalkingState(NPCParent npc)
     {
@@ -24,9 +24,7 @@ public class WalkingChild : NPCParent.IState
         direction = Random.insideUnitCircle.normalized;
         if (susSuund)
         {
-            direction = SnapToCardinal(direction);
-            duration *= 2;
-            moveSpeed *= 3;
+            direction = 1.5f * SnapToCardinal(direction);
         }
         Animator animator = npc.GetComponent<Animator>();
         if (susAnima == false) animator.SetTrigger("Bounce");

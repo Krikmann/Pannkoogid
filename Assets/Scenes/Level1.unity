@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e793358cf7a764793c253c55a91be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tells: 
-  visitorCount: 5
+  tells: 000000000400000002000000
+  visitorCount: 10
   visitorPrefab: {fileID: 8440659758063113422, guid: f0db4e2eba58b774f828b2a3ec296847, type: 3}
   visitorPanel: {fileID: 7589666257617793353}
   visitorBounds: {fileID: 619668661}
@@ -667,6 +667,10 @@ PrefabInstance:
       propertyPath: movemntBounds
       value: 
       objectReference: {fileID: 434753522}
+    - target: {fileID: 1713518338887789400, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
