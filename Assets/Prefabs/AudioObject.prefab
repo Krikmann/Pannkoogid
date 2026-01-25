@@ -51,12 +51,32 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
   - name: ERM_0
-    clip: {fileID: 8300000, guid: 3f9b8f034f4b1a44e8c214f271a40811, type: 3}
-    volume: 10
+    clip: {fileID: 8300000, guid: fa87cb20edbb3974aa50a2e246d4b78b, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: ERM_1
+    clip: {fileID: 8300000, guid: bcad08d2165bee64ebe82bd0ea8444db, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: ERM_2
+    clip: {fileID: 8300000, guid: bcd7ccbee78b0214396193bd96e8ba60, type: 3}
+    volume: 1
     pitch: 1
     audioSource: {fileID: 0}
   - name: FAKE_ERM_0
-    clip: {fileID: 8300000, guid: 5142631607bcc7240a2cb9cb01be3585, type: 3}
+    clip: {fileID: 8300000, guid: fabf3a6f3c96ffb4f9d9a11556d50613, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: FAKE_ERM_1
+    clip: {fileID: 8300000, guid: 7886a9ce9cf59c2488ba40357cf7567e, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: FAKE_ERM_1
+    clip: {fileID: 8300000, guid: 7886a9ce9cf59c2488ba40357cf7567e, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
