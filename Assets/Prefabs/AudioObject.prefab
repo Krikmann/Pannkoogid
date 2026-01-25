@@ -76,7 +76,7 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
   - name: AMBIENT
-    clip: {fileID: 8300000, guid: 89e2335b9a6863c4094fab149655b9b8, type: 3}
+    clip: {fileID: 8300000, guid: 0d40f362e098ad547b9f1b95de185f0d, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
