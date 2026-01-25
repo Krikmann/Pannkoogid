@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EndingCutscene : MonoBehaviour
 {
     public Sprite[] images;
-    private int _counter = 0;
+    private int end_counter = 0;
     public Image image;
 
     private void Awake()
@@ -17,13 +17,13 @@ public class EndingCutscene : MonoBehaviour
 
     public void NextImage()
     {
-        if (_counter >= images.Length)
+        if (end_counter >= images.Length)
         {
             SceneManager.LoadScene(SceneRefs.MainMenu); // end cutscene
             return;
         }
 
-        image.sprite = images[_counter];
-        _counter++;
+        image.sprite = images[end_counter];
+        end_counter++;
     }
 }
