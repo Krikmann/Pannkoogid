@@ -66,7 +66,7 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
             bool randomValue = Random.Range(0f, 1f) > 0.5f; // Randomly assigns true or false
             tempList.Add(randomValue);
         }
-        int nameIndexTemp = Random.Range(0,9);
+        int nameIndexTemp = Random.Range(0,10);
         if (tempList[4])
         {
             nameIndexTemp += 10;
