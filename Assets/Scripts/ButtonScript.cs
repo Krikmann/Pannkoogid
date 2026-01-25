@@ -74,7 +74,7 @@ public class ButtonScript : MonoBehaviour
     public void CloseIDCard()
     {
         IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
-        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        IDCardPanel.transform.localPosition = new Vector3(0, 0, 0);
         IDCardOpen = false;
     }
 
