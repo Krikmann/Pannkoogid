@@ -13,17 +13,18 @@ public class StartingCutscene : MonoBehaviour
     private void Awake()
     {
         NextImage();
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.SetTrigger("Start");
     }
 
     public void NextImage()
     {
-        if (_counter >= images.Length)
-        {
-            SceneManager.LoadScene(SceneRefs.Level1); // end cutscene
-            return;
-        }
+        if (_counter >= images.Length) return;
+        image.sprite = images[_counter++];
+    }
 
-        image.sprite = images[_counter];
-        _counter++;
+    public void SwitchScene()
+    {
+        SceneManager.LoadScene(SceneRefs.Level1); // end cutscene
     }
 }

@@ -7,23 +7,24 @@ using UnityEngine.UI;
 public class EndingCutscene : MonoBehaviour
 {
     public Sprite[] images;
-    private int end_counter = 0;
+    private int _counter = 0;
     public Image image;
 
     private void Awake()
     {
         NextImage();
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.SetTrigger("Start");
     }
 
     public void NextImage()
     {
-        if (end_counter >= images.Length)
-        {
-            SceneManager.LoadScene(SceneRefs.MainMenu); // end cutscene
-            return;
-        }
+        if (_counter >= images.Length) return;
+        image.sprite = images[_counter++];
+    }
 
-        image.sprite = images[end_counter];
-        end_counter++;
+    public void SwitchScene()
+    {
+        SceneManager.LoadScene(SceneRefs.Level1); // end cutscene
     }
 }
