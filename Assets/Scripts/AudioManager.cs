@@ -31,11 +31,15 @@ public class AudioManager : MonoBehaviour
 
     public void playERM()
     {
-        playSound("ERM_0", 1, 1);
+        Random rnd = new Random();
+        int num  = rnd.Next(0, 3);
+        playSound("ERM_"+num.ToString(), 1, 1);
     }
     public void playFakeERM()
-    {
-        playSound("FAKE_ERM_0", 1, 1);
+    {   
+        Random rnd = new Random();
+        int num  = rnd.Next(0, 3);
+        playSound("FAKE_ERM_"+num.ToString(), 1, 1);
     }
 
     public void playSound(string name)
