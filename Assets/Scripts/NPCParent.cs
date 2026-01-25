@@ -23,6 +23,7 @@ tell nimekiri:
 directionality; liikumis_anima; riided; "ERM" test; ID ask;
 */
     public string visitorName;
+    public List<string> possibleNames = new List<string> {"Martin", "Andres", "Toomas", "Margus", "Kristjan", "Anna", "Maria", "Katrin", "Tiina", "Laura","Mardin", "Ändres", "Tung Tung", "Märgus", "Krissjan", "Änna", "Märja", "Kardin", "Viina", "L-Aura"};
     //nimekiri nimedest
     public bool isImpostor;
 
@@ -70,7 +71,7 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
         {
             nameIndexTemp += 10;
         }
-        //this.visitorName = list nimeedega [nameIndexTemp];
+        this.visitorName = possibleNames[nameIndexTemp];
         // no random for impostor tells
         foreach (int tell in impostorTells)
         {
