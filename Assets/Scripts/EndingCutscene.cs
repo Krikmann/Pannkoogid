@@ -25,6 +25,6 @@ public class EndingCutscene : MonoBehaviour
 
     public void SwitchScene()
     {
-        SceneManager.LoadScene(SceneRefs.Level1); // end cutscene
+        SceneManager.LoadScene(SceneRefs.MainMenu); // end cutscene
     }
 }
