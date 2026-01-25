@@ -92,10 +92,12 @@ public class ButtonScript : MonoBehaviour
         }
         else  // LOSE
         {
-            Health.Instance.currentHP--;
-            if (Health.Instance.currentHP == 0)
+            Health hp = GameObject.Find("Player").GetComponent<Health>();
+            hp.currentHP--;
+            Debug.Log("Lives: " +  hp.currentHP);
+            if (hp.currentHP == 0)
             {
-                Health.Instance.currentHP = Health.Instance.startingHP;
+                hp.currentHP = hp.startingHP;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
