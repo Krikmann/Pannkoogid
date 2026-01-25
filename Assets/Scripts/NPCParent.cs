@@ -22,6 +22,8 @@ public class NPCParent : MonoBehaviour
 tell nimekiri:
 directionality; liikumis_anima; riided; "ERM" test; ID ask;
 */
+    public string visitorName;
+    //nimekiri nimedest
     public bool isImpostor;
 
     public interface IState
