@@ -337,7 +337,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &841607894
+--- !u!1001 &940457992
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -345,29 +345,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
-      propertyPath: sounds.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
-      propertyPath: sounds.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 89e2335b9a6863c4094fab149655b9b8, type: 3}
-    - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
-      propertyPath: sounds.Array.data[6].name
-      value: AMBIENT
-      objectReference: {fileID: 0}
     - target: {fileID: 4940884660402891286, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: m_Name
       value: AudioObject
       objectReference: {fileID: 0}
     - target: {fileID: 9090150107578386197, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.6428
+      value: 1.26633
       objectReference: {fileID: 0}
     - target: {fileID: 9090150107578386197, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.58503
+      value: 0.66303
       objectReference: {fileID: 0}
     - target: {fileID: 9090150107578386197, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -909,7 +897,7 @@ SceneRoots:
   - {fileID: 3720765457391726204}
   - {fileID: 6031141702853757002}
   - {fileID: 1829281035}
-  - {fileID: 841607894}
   - {fileID: 3656806480950268463}
   - {fileID: 344826402}
   - {fileID: 338460790}
+  - {fileID: 940457992}

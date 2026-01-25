@@ -75,13 +75,13 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
-  - name: AMBIENT
-    clip: {fileID: 8300000, guid: 0d40f362e098ad547b9f1b95de185f0d, type: 3}
+  - name: FAKE_ERM_2
+    clip: {fileID: 8300000, guid: 6c1f6999aab8fa144988aec24a364914, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
-  - name: FAKE_ERM_2
-    clip: {fileID: 8300000, guid: 6c1f6999aab8fa144988aec24a364914, type: 3}
+  - name: AMBIENT
+    clip: {fileID: 8300000, guid: 0d40f362e098ad547b9f1b95de185f0d, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}

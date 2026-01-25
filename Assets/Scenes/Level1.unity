@@ -233,14 +233,22 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: sounds.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: sounds.Array.data[6].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 89e2335b9a6863c4094fab149655b9b8, type: 3}
+      objectReference: {fileID: 8300000, guid: 6c1f6999aab8fa144988aec24a364914, type: 3}
     - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
       propertyPath: sounds.Array.data[6].name
+      value: FAKE_ERM_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 89e2335b9a6863c4094fab149655b9b8, type: 3}
+    - target: {fileID: 4434478882107252657, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
+      propertyPath: sounds.Array.data[7].name
       value: AMBIENT
       objectReference: {fileID: 0}
     - target: {fileID: 4940884660402891286, guid: b269441d169482f46a48b15cf8ff7f9c, type: 3}
