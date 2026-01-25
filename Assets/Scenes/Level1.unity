@@ -323,7 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e793358cf7a764793c253c55a91be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  uniqueTellIndex: 0
+  tells: 
+  amountTells: 0
+  chosenTells: 
   visitorCount: 5
   visitorPrefab: {fileID: 8440659758063113422, guid: f0db4e2eba58b774f828b2a3ec296847, type: 3}
   visitorPanel: {fileID: 7589666257617793353}
@@ -627,6 +629,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2141342814176168242, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
   m_PrefabInstance: {fileID: 9124422611250542229}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7589666257617793354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2541758668389600619, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+  m_PrefabInstance: {fileID: 9124422611250542229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589666257617793353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c572c812b62da2f4a9cb1bc069d84def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
 --- !u!1001 &9124422611250542229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -635,6 +648,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1483637934320808185, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483637934320808185, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483637934320808185, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483637934320808185, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3984538414402347313, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -715,10 +744,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5626153252540942310, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626153252540942310, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626153252540942310, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626153252540942310, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810781957454903496, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810781957454903496, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810781957454903496, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810781957454903496, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 7589666257617793354}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
       objectReference: {fileID: 1829281034}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseIDCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ZoomOutTriggerEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182388353937351631, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8895944577083947932, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
       propertyPath: m_Name
       value: Canvas

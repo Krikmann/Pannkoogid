@@ -639,20 +639,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &624948331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1515ab76e54f068e2f2207940fab32, type: 3}
-  m_Name: Gameplay/Move
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
-  m_Asset: {fileID: -944628639613478452, guid: 083c775e7158bc8438504ad386d99f31, type: 3}
-  m_ActionId: 761d87df-d723-47d2-8125-a82527510840
 --- !u!1 &806272348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,71 +1631,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2320104642951235166, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
   m_PrefabInstance: {fileID: 7589666257617793352}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3720765457391726204
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 452574870187846772, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: Move
-      value: 
-      objectReference: {fileID: 624948331}
-    - target: {fileID: 452574870187846772, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: movemntBounds
-      value: 
-      objectReference: {fileID: 434753522}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2143336119632983645, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3332461022068510391, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cf296423bf248454eb27b4feccd0461a, type: 3}
 --- !u!1001 &7589666257617793352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1900,7 +1821,6 @@ SceneRoots:
   - {fileID: 973577150}
   - {fileID: 2074641949}
   - {fileID: 552734406}
-  - {fileID: 3720765457391726204}
   - {fileID: 434753523}
   - {fileID: 57551123}
   - {fileID: 1829281035}

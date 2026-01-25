@@ -1004,12 +1004,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1148,43 +1148,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 887745168503065326, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 887745168503065326, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 887745168503065326, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 867.1074
       objectReference: {fileID: 0}
     - target: {fileID: 887745168503065326, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277106478664798697, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277106478664798697, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277106478664798697, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277106478664798697, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ZoomOutTriggerEnter
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277106478664798697, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameEvent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277106478664798697, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 2320104642951235166, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_Pivot.x
@@ -1268,35 +1244,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323801503601030592, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3323801503601030592, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3323801503601030592, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 867.1074
       objectReference: {fileID: 0}
     - target: {fileID: 3323801503601030592, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -500
       objectReference: {fileID: 0}
     - target: {fileID: 8404402584691704543, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8404402584691704543, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8404402584691704543, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 867.1074
       objectReference: {fileID: 0}
     - target: {fileID: 8404402584691704543, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 9044086469003492116, guid: 783acf2e26515634aada3618c4cede1c, type: 3}
       propertyPath: m_Name
