@@ -4,7 +4,7 @@ using UnityEngine;
 public class spriteZIndexChooser : MonoBehaviour
 {
     public GameObject visitor;
-    private SpriteRenderer _sr;
+    public SpriteRenderer _sr;
 
     private void Awake()
     {
