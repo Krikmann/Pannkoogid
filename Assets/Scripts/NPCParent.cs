@@ -67,11 +67,11 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
             tempList.Add(randomValue);
         }
         int nameIndexTemp = Random.Range(0,9);
-        if (sussyBoolList[4])
+        if (tempList[4])
         {
             nameIndexTemp += 10;
         }
-        this.visitorName = possibleNames[nameIndexTemp];
+        visitorName = possibleNames[nameIndexTemp];
         // no random for impostor tells
         foreach (int tell in impostorTells)
         {
