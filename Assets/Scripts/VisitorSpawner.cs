@@ -41,6 +41,6 @@ public class VisitorSpawner : MonoBehaviour
 
         if (bounds.OverlapPoint(point))
             return point;
-        return GetRandomPointInBounds(bounds); // try again
+        return GetRandomPointInBounds(bounds); // try agai
     }
 }
