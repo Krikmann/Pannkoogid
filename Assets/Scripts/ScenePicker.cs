@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -9,18 +10,41 @@ public class ScenePicker : MonoBehaviour
     public bool isPaused = false;
     [SerializeField] private bool isMainMenu = false;
 
+    private BackInputProvider back;
+
 
     private void Update() {
-        if(!isMainMenu){
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if(!isPaused)
-                    Pause();
-                else
-                    Resume();        
-            }
-        }
+        // if(!isMainMenu){
+        //     if (Input.GetKeyDown(KeyCode.Escape))
+        //     {
+        //         if(!isPaused)
+        //             Pause();
+        //         else
+        //             Resume();        
+        //     }
+        // }
     }
+
+    private void Awake()
+    {
+        back = FindFirstObjectByType<BackInputProvider>();
+        back.BackClicked += OnBack;
+    }
+    private void OnDestroy()
+    {
+        back.BackClicked -= OnBack;
+    }
+
+    public void OnBack()
+    {
+        if (isMainMenu) return;
+    
+        if (!isPaused)
+            Pause();
+        else
+            Resume();
+    }
+    
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
