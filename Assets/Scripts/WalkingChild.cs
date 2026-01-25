@@ -27,8 +27,8 @@ public class WalkingChild : NPCParent.IState
             direction = 1.5f * SnapToCardinal(direction);
         }
         Animator animator = npc.GetComponent<Animator>();
-        if (susAnima == false) animator.SetTrigger("Bounce");
-        else animator.SetTrigger("Walk");
+        if (susAnima == false) animator.SetTrigger("Walk");
+        else animator.SetTrigger("Bounce");
         npc.StartCoroutine(WalkForDuration());
     }
 

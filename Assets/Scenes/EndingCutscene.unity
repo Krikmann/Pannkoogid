@@ -667,10 +667,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndingCutscene
   images:
-  - {fileID: -4629242965938930593, guid: 4bfd732c2e6371e4e9ff0140e6307d64, type: 3}
-  - {fileID: 1363762933382280378, guid: 39ee72f3f23bbb647bc1eb212f682ef9, type: 3}
-  - {fileID: 104079729060674647, guid: e963a1ee8d34e6b4ba11715d6d7ad605, type: 3}
-  image: {fileID: 0}
+  - {fileID: -6617468251018576809, guid: 18dc44eeec4bbfb4880e9ee4c374a970, type: 3}
+  - {fileID: 5568468421416243474, guid: e9346fe4a4a3eeb44b0379ba724f04b2, type: 3}
+  - {fileID: -3382815355373143651, guid: c3d0dff92e47409449ea8752708bf5dc, type: 3}
+  image: {fileID: 1292395363}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
