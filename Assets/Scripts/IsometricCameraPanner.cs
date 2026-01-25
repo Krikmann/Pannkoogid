@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,14 @@ public class IsometricCameraPanner : MonoBehaviour
     private Vector2 moveDirection;
 
     public PolygonCollider2D movemntBounds;
+
+    private void Awake()
+    {
+        if (movemntBounds == null)
+        {
+            movemntBounds = GameObject.Find("CameraBounds").GetComponent<PolygonCollider2D>();
+        }
+    }
 
     // Update is called once per frame
     void Update()
