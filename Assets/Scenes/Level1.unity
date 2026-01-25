@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e793358cf7a764793c253c55a91be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tells: 000000000400000002000000
+  tells: 000000000300000002000000
   visitorCount: 10
   visitorPrefab: {fileID: 8440659758063113422, guid: f0db4e2eba58b774f828b2a3ec296847, type: 3}
   visitorPanel: {fileID: 7589666257617793353}
