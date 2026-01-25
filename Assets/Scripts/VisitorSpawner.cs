@@ -13,8 +13,7 @@ public class VisitorSpawner : MonoBehaviour
         "3 - ERM... test\n" +
         "4 - ID kaardil nimi")]
     public List<int> tells;
-    public int amountTells;
-    public List<int> chosenTells;
+    private int amountTells;
     public int visitorCount;
     public GameObject visitorPrefab;
 
@@ -29,36 +28,34 @@ public class VisitorSpawner : MonoBehaviour
         switch (scene.name)
         {
             case ("Level1"): amountTells = 3    ; visitorCount = 10; break;
-            case ("Level2"): amountTells = 3    ; visitorCount = 30; break;
-            case ("Level3"): amountTells = 2    ; visitorCount = 30; break;
-            case ("Level4"): amountTells = 2    ; visitorCount = 50; break;
-            case ("Level5"): amountTells = 1    ; visitorCount = 50; break;
+            case ("Level2"): amountTells = 3    ; visitorCount = 15; break;
+            case ("Level3"): amountTells = 2    ; visitorCount = 15; break;
+            case ("Level4"): amountTells = 2    ; visitorCount = 25; break;
+            case ("Level5"): amountTells = 1    ; visitorCount = 25; break;
         }
-        for (int i = 0; i < amountTells; i++)
-        {
-            int temp = Random.Range(0,4);
-            if (chosenTells.Contains(temp))
-            {
-                i--;
-            } else
-            {
-                chosenTells.Add(temp);
-                tells.Add(temp);
-            }
-        }
+        
+        // Init visitors
         for (int i = 0; i < visitorCount; i++)
         {
             GameObject visitor = Instantiate(visitorPrefab);
-            visitor.transform.position = new Vector3(
-                Random.Range(-2f, 2f),
-                Random.Range(-2, 2f),
-                0.0f
-            );
+            visitor.transform.position = GetRandomPointInBounds(visitorBounds);
             visitor.GetComponent<Selectable>().visitorPanel = visitorPanel;
             NPCParent npc = visitor.GetComponent<NPCParent>();
             npc.outsideCollider = visitorBounds;
             npc.impostorTells = tells;
-            if (i == 0) npc.isImpostor = true;
+            if (i == 0) npc.isImpostor = true;  // first visitor is sus
         }
+    }
+    
+    Vector2 GetRandomPointInBounds(PolygonCollider2D bounds)
+    {
+        Vector2 point = new Vector2(
+            Random.Range(bounds.bounds.min.x, bounds.bounds.max.x),
+            Random.Range(bounds.bounds.min.y, bounds.bounds.max.y)
+        );
+
+        if (bounds.OverlapPoint(point))
+            return point;
+        return GetRandomPointInBounds(bounds); // try again
     }
 }
