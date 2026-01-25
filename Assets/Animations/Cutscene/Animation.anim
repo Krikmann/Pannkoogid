@@ -307,14 +307,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 8.25
+  - time: 8.266666
     functionName: NextImage
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 11.983334
+  - time: 12
     functionName: SwitchScene
     data: 
     objectReferenceParameter: {fileID: 0}
