@@ -33,7 +33,17 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayMusic()
     {
-        
+        if (SceneManager.GetActiveScene().buildIndex <= 1 || SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            Debug.Log("playing music");
+            gameMusic = soundsDict["MUSIC"];
+            gameMusic.audioSource.volume = gameMusic.volume*GlobalReferences.volume;
+            if (!gameMusic.audioSource.isPlaying)
+            {
+                gameMusic.audioSource.loop = true;
+                playSound(gameMusic.name);
+            }
+        }
     }
     
     public void playAmbient()
