@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 6740211819378232837}
   - component: {fileID: 6302308045597118688}
   - component: {fileID: 5639040270848823456}
+  - component: {fileID: 3694824276812614486}
   m_Layer: 0
   m_Name: Visitor
   m_TagString: Visitor
@@ -326,6 +327,28 @@ MonoBehaviour:
   insideColliders: []
   impostorTells: 
   tellListLength: 5
+  visitorName: 
+  possibleNames:
+  - Martin
+  - Andres
+  - Toomas
+  - Margus
+  - Kristjan
+  - Anna
+  - Maria
+  - Katrin
+  - Tiina
+  - Laura
+  - Mardin
+  - "\xC4ndres"
+  - Tung Tung
+  - "M\xE4rgus"
+  - Krissjan
+  - "\xC4nna"
+  - "M\xE4rja"
+  - Kardin
+  - Viina
+  - L-Aura
   isImpostor: 0
   sussyBoolList: 
   moveSpeed: 1
@@ -353,3 +376,16 @@ MonoBehaviour:
   - {fileID: -6843383390751605677, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
   - {fileID: -4497869624359622211, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
   - {fileID: 2290396692961339544, guid: 5c78f740896747148377edaaadb4fbf2, type: 3}
+--- !u!114 &3694824276812614486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440659758063113422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 741c66cfbc23c064d81898a421ecbc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  visitor: {fileID: 167491772319603102}
