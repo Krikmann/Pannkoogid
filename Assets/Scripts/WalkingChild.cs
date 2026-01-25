@@ -36,8 +36,6 @@ public class WalkingChild : NPCParent.IState
     {
         if (isWalking)
         {
-
-            Debug.Log("NPC is walking... " + direction + " Speed: " + moveSpeed);
             Vector2 newPosition = (Vector2)npc.transform.position + direction * moveSpeed * Time.deltaTime;
 
             // Check if the new position is inside the polygon collider

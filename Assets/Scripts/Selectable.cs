@@ -16,7 +16,6 @@ public class Selectable : MonoBehaviour
     private void Awake()
     {
         collider = GetComponent<BoxCollider2D>();
-        Debug.Log("Box " + collider.bounds);
         mouse = FindFirstObjectByType<MouseInputProvider>();
         mouse.Clicked += MouseOnClicked;
 
@@ -27,18 +26,10 @@ public class Selectable : MonoBehaviour
 
     private void MouseOnClicked()
     {
-        Debug.Log("Mouse: " + mouse.WorldPosition + ", Collider: " + collider.bounds);
-        Debug.Log("MousePos: " + mouse.WorldPosition);
         if (collider.OverlapPoint(mouse.WorldPosition))
         {
             GameEvent.current.RequestZoomOut();
-
-            Debug.Log("Invoke");
             ZoomIn();
-        }
-        else
-        {
-            Debug.Log("click not in bounds");
         }
     }
 

@@ -1,16 +1,18 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
     public GameObject visitor;
-    public TextMeshProUGUI IdCardText;
     public Image CharacterImage;
-
-    private bool IDCardOpen = false;
+    public TextMeshProUGUI IdCardText;
     public GameObject IDCardPanel;
+    public GameObject SyydiPanel;
+    private bool IDCardOpen = false;
+
 
     private void Awake()
     {
@@ -27,7 +29,6 @@ public class ButtonScript : MonoBehaviour
 
     private void Start()
     {
-        IDCardPanel = gameObject.transform.GetChild(2).gameObject;
         IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
         IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
     }
@@ -76,21 +77,34 @@ public class ButtonScript : MonoBehaviour
 
     public void CloseIDCard()
     {
-        IDCardPanel = gameObject.transform.GetChild(2).gameObject;
         IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
         IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        IDCardOpen = false;
+    }
 
-        Animator animator = IDCardPanel.GetComponent<Animator>();
-        if (IDCardOpen)
+    public void SyydiAnimationOver()
+    {
+        SyydiPanel.SetActive(false);
+        
+        if (visitor.GetComponent<NPCParent>().isImpostor)  // WIN
         {
-            animator.SetTrigger("Close");
-            IDCardOpen = !IDCardOpen;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   // Load next scene
         }
-
+        else  // LOSE
+        {
+            Health.Instance.currentHP--;
+            if (Health.Instance.currentHP == 0)
+            {
+                Health.Instance.currentHP = Health.Instance.startingHP;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
     }
 
     public void Suudi()
     {
-        Debug.Log("Suudi");
+        SyydiPanel.SetActive(true);
+        Animator animator = SyydiPanel.GetComponent<Animator>();
+        animator.SetTrigger("Syydi");
     }
 }
