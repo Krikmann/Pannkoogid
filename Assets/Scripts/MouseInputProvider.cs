@@ -9,6 +9,8 @@ public class MouseInputProvider : MonoBehaviour
     public Vector2 WorldPosition {get; private set;}
     public event Action Clicked;
 
+    public bool bPaused = false;
+
     private void Awake()
     {
         currentCamera = Camera.main;
@@ -26,6 +28,9 @@ public class MouseInputProvider : MonoBehaviour
 
     private void OnInteract(InputValue _)
     {
-        Clicked?.Invoke();
+        if(!bPaused)
+        {
+            Clicked?.Invoke();
+        }
     }
 }

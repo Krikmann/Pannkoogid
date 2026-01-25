@@ -11,6 +11,7 @@ public class ScenePicker : MonoBehaviour
     [SerializeField] private bool isMainMenu = false;
 
     private BackInputProvider back;
+    private MouseInputProvider mouse;
 
 
     private void Update() {
@@ -29,6 +30,7 @@ public class ScenePicker : MonoBehaviour
     {
         back = FindFirstObjectByType<BackInputProvider>();
         back.BackClicked += OnBack;
+        mouse = FindFirstObjectByType<MouseInputProvider>();
     }
     private void OnDestroy()
     {
@@ -50,12 +52,14 @@ public class ScenePicker : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        mouse.bPaused = true;
     }
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        mouse.bPaused = false;
     }
 
     public void LoadMenu(){
