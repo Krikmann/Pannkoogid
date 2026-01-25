@@ -13,7 +13,6 @@ public class IsometricCameraPanner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //bool enabled = Move.action.enabled;
         moveDirection = Move.action.ReadValue<Vector2>();
 
@@ -21,7 +20,7 @@ public class IsometricCameraPanner : MonoBehaviour
         Vector3 newPosition = transform.position + new Vector3(moveDirection.x, moveDirection.y, 0) * (panSpeed * Time.deltaTime);
         Vector2 newPosition2D = new Vector2(newPosition.x, newPosition.y);
 
-        if(movemntBounds.OverlapPoint(newPosition2D))
+        if (movemntBounds.OverlapPoint(newPosition2D))
         {
             transform.position = newPosition;
         }

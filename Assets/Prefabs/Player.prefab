@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 2191037067904550082}
   - component: {fileID: 452574870187846772}
   - component: {fileID: 6326448422586940399}
-  - component: {fileID: 9215808324305400779}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -185,16 +184,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc07f7fcca967b940ac1241f2fb17655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseInputProvider
---- !u!114 &9215808324305400779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3332461022068510391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f08558ec742eadc45886bf1e5119a958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  startingHP: 3

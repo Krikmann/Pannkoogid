@@ -19,7 +19,6 @@ public class VolumeChange : MonoBehaviour
     void Update()
     {
         GlobalReferences.volume = slider.value;
-        Debug.Log(GlobalReferences.volume);
     }
     public void OnChangeXD()
     {
