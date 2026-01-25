@@ -52,7 +52,6 @@ public class AudioManager : MonoBehaviour
 
     public void playERM()
     {
-        
         int num  = UnityEngine.Random.Range(0, 3);
         playSound("ERM_"+num.ToString(), 1, 1);
     }
@@ -61,7 +60,22 @@ public class AudioManager : MonoBehaviour
         int num  = UnityEngine.Random.Range(0, 3);
         playSound("FAKE_ERM_"+num.ToString(), 1, 1);
     }
-
+    public void playCORRECT()
+    {
+        playSound("WHOOSH", 1, 1);
+    }
+    public void playINCORRECT()
+    {
+        playSound("INCORRECT", 1, 1);
+    }
+    public void playWHOOSH()
+    {
+        playSound("WHOOSH", 1, 1);
+    }
+    public void playFAHHH()
+    {
+        playSound("FAHHH", 1, 1);
+    }
 
     public void playSound(string name)
     {
