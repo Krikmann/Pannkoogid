@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public Dictionary<string, Sound> soundsDict = new Dictionary<string, Sound>();
     public float masterVolume = 1f;
     Sound gameMusic;
+    Sound gameAmbient;
 
     void Awake()
     {
@@ -24,23 +26,42 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Size: " + soundsDict.Count);
     }
 
+    void Update()
+    {
+        PlayMusic();
+        playAmbient();
+    }
     public void PlayMusic()
     {
         
     }
+    
+    public void playAmbient()
+    {
+
+        if (SceneManager.GetActiveScene().buildIndex >= 2 || SceneManager.GetActiveScene().buildIndex <=6)
+        {
+            gameAmbient = soundsDict["AMBIENT"];
+            if (!gameAmbient.audioSource.isPlaying)
+            {
+                gameAmbient.audioSource.loop = true;
+                playSound(gameAmbient.name);
+            }
+        }
+    }
 
     public void playERM()
     {
-        Random rnd = new Random();
-        int num  = rnd.Next(0, 3);
+        
+        int num  = UnityEngine.Random.Range(0, 3);
         playSound("ERM_"+num.ToString(), 1, 1);
     }
     public void playFakeERM()
     {   
-        Random rnd = new Random();
-        int num  = rnd.Next(0, 3);
+        int num  = UnityEngine.Random.Range(0, 3);
         playSound("FAKE_ERM_"+num.ToString(), 1, 1);
     }
+
 
     public void playSound(string name)
     {
