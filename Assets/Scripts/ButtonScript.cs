@@ -33,7 +33,7 @@ public class ButtonScript : MonoBehaviour
     private void Start()
     {
         IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
-        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        IDCardPanel.transform.localPosition = new Vector3(0, 0, 0);
     }
 
     private void SetCurrentVisitor(GameObject visitor)
