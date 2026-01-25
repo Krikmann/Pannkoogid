@@ -46,14 +46,7 @@ public class ButtonScript : MonoBehaviour
         }
 
         NPCParent npc = visitor.GetComponent<NPCParent>();
-        if (npc.sussyBoolList[4]) // Erm index
-        {
-            IdCardText.text = "Impostor kaardil";
-        }
-        else
-        {
-            IdCardText.text = "Visitor kaardil";
-        }
+        IdCardText.text = npc.visitorName;
     }
 
 
