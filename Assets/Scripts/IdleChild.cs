@@ -5,7 +5,6 @@ public class IdleChild : NPCParent.IState
 {
     private NPCParent npc;
     private float duration = Random.Range(0.5f,1.3f);
-    private bool isIdle = false;
 
     public void IdleState(NPCParent npc)
     {
@@ -14,7 +13,6 @@ public class IdleChild : NPCParent.IState
 
     public void Enter()
     {
-        isIdle = true;
         npc.StartCoroutine(IdleForDuration());
         npc.GetComponent<Animator>().SetTrigger("Idle");
     }
@@ -25,7 +23,6 @@ public class IdleChild : NPCParent.IState
 
     public void Exit()
     {
-        isIdle = false;
     }
 
     private IEnumerator IdleForDuration()
