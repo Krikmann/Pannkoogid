@@ -38,10 +38,10 @@ public class AudioManager : MonoBehaviour
     
     public void playAmbient()
     {
-
         if (SceneManager.GetActiveScene().buildIndex >= 2 || SceneManager.GetActiveScene().buildIndex <=6)
         {
             gameAmbient = soundsDict["AMBIENT"];
+            gameAmbient.audioSource.volume = gameAmbient.volume*GlobalReferences.volume;
             if (!gameAmbient.audioSource.isPlaying)
             {
                 gameAmbient.audioSource.loop = true;
