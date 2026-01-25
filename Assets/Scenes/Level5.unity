@@ -233,6 +233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8397afada0e83b8449cfd97409d1bae0, type: 3}
+--- !u!60 &311006952 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2136580003805806176, guid: 8397afada0e83b8449cfd97409d1bae0, type: 3}
+  m_PrefabInstance: {fileID: 311006951}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552734404
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,11 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e793358cf7a764793c253c55a91be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  tells: 
-  visitorCount: 2
+  tells: 02000000
+  visitorCount: 24
   visitorPrefab: {fileID: 8440659758063113422, guid: f0db4e2eba58b774f828b2a3ec296847, type: 3}
-  visitorPanel: {fileID: 0}
-  visitorBounds: {fileID: 0}
+  visitorPanel: {fileID: 646035496}
+  visitorBounds: {fileID: 311006952}
 --- !u!4 &552734406
 Transform:
   m_ObjectHideFlags: 0
@@ -410,6 +415,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+--- !u!1 &646035496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2141342814176168242, guid: 112b22393167d954e84e1fd4855d1ddd, type: 3}
+  m_PrefabInstance: {fileID: 646035495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &958110435
 PrefabInstance:
   m_ObjectHideFlags: 0

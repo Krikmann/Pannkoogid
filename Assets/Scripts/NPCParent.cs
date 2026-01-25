@@ -22,6 +22,9 @@ public class NPCParent : MonoBehaviour
 tell nimekiri:
 directionality; liikumis_anima; riided; "ERM" test; ID ask;
 */
+    public string visitorName;
+    public List<string> possibleNames = new List<string> {"Martin", "Andres", "Toomas", "Margus", "Kristjan", "Anna", "Maria", "Katrin", "Tiina", "Laura","Mardin", "Ändres", "Tung Tung", "Märgus", "Krissjan", "Änna", "Märja", "Kardin", "Viina", "L-Aura"};
+    //nimekiri nimedest
     public bool isImpostor;
 
     public interface IState
@@ -63,7 +66,12 @@ directionality; liikumis_anima; riided; "ERM" test; ID ask;
             bool randomValue = Random.Range(0f, 1f) > 0.5f; // Randomly assigns true or false
             tempList.Add(randomValue);
         }
-        
+        int nameIndexTemp = Random.Range(0,9);
+        if (sussyBoolList[4])
+        {
+            nameIndexTemp += 10;
+        }
+        this.visitorName = possibleNames[nameIndexTemp];
         // no random for impostor tells
         foreach (int tell in impostorTells)
         {
