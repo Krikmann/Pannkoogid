@@ -14,4 +14,9 @@ public class SyydiPanelAnimOverEmmiter : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
+
+    public void PlayWoosh()
+    {
+        GlobalReferences.audioManager.playWHOOSH();
+    }
 }

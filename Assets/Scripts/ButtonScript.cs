@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject IDCardPanel;
     public GameObject SyydiPanel;
     private bool IDCardOpen = false;
+
+    private int guessesDone = 0;
 
 
     private void Awake()
@@ -88,19 +91,38 @@ public class ButtonScript : MonoBehaviour
         
         if (visitor.GetComponent<NPCParent>().isImpostor)  // WIN
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   // Load next scene
+            GlobalReferences.audioManager.playCORRECT();
+            StartCoroutine(WaitForAudioToFinishWin());
+
         }
         else  // LOSE
         {
-            Health hp = GameObject.Find("Player").GetComponent<Health>();
-            hp.currentHP--;
-            Debug.Log("Lives: " +  hp.currentHP);
-            if (hp.currentHP == 0)
+            if (guessesDone == 2)   //3rd guess lose
             {
-                hp.currentHP = hp.startingHP;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                guessesDone = 0;
+                GlobalReferences.audioManager.playFAHHH();
+                StartCoroutine(WaitForAudioToFinishLose());
+            }
+            else
+            {
+                GlobalReferences.audioManager.playINCORRECT();
+                guessesDone++;
+                Debug.Log("Lives: " + guessesDone);
             }
         }
+    }
+    
+    
+    IEnumerator WaitForAudioToFinishLose()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Restart same scene
+    }
+    
+    IEnumerator WaitForAudioToFinishWin()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);   // Load next scene
     }
 
     public void Suudi()

@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
     }
     public void playCORRECT()
     {
-        playSound("WHOOSH", 1, 1);
+        playSound("CORRECT", 1, 1);
     }
     public void playINCORRECT()
     {

@@ -85,9 +85,9 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
-  - name: INCORRCT
+  - name: INCORRECT
     clip: {fileID: 8300000, guid: 496b87c9e08cad24084664b05b52d84a, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     audioSource: {fileID: 0}
   - name: FAHHH
@@ -97,6 +97,11 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - name: WHOOSH
     clip: {fileID: 8300000, guid: 84cea5f094052544393d3a257c22e160, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: AMBIENT
+    clip: {fileID: 8300000, guid: 0d40f362e098ad547b9f1b95de185f0d, type: 3}
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
