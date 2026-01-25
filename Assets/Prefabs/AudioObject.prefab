@@ -105,4 +105,9 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
+  - name: MUSIC
+    clip: {fileID: 8300000, guid: 0963702e6cf9fce49af6a73145203eb6, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
   masterVolume: 1
