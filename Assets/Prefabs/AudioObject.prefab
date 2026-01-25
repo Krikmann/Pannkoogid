@@ -80,4 +80,9 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     audioSource: {fileID: 0}
+  - name: FAKE_ERM_2
+    clip: {fileID: 8300000, guid: 6c1f6999aab8fa144988aec24a364914, type: 3}
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
   masterVolume: 1
