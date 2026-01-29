@@ -12,7 +12,7 @@ public class ButtonScript : MonoBehaviour
     public TextMeshProUGUI IdCardText;
     public GameObject IDCardPanel;
     public GameObject SyydiPanel;
-    private bool IDCardOpen = false;
+    private bool IDCardOpen;
 
     private int guessesDone = 0;
 
@@ -20,6 +20,7 @@ public class ButtonScript : MonoBehaviour
     private void Awake()
     {
         GameEvent.current.onZoomedIn += SetCurrentVisitor;
+        GameEvent.current.onRequestedZoomOut += CloseIDCard;
     }
 
     private void OnDestroy()
@@ -27,6 +28,7 @@ public class ButtonScript : MonoBehaviour
         if (GameEvent.current != null)
         {
             GameEvent.current.onZoomedIn -= SetCurrentVisitor;
+            GameEvent.current.onRequestedZoomOut -= CloseIDCard;
         }
     }
 
