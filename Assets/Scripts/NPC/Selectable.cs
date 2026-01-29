@@ -1,32 +1,54 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Selectable : MonoBehaviour
 {
     [SerializeField] private UnityEvent clicked;
-    private MouseInputProvider mouse;
-    private new BoxCollider2D collider;
+    private MouseInputProvider _mouse;
+    private CapsuleCollider2D _collider;
 
     public GameObject visitorPanel;
     public Camera visitorCamera;
-    public Camera MainCamera;
+    public Camera mainCamera;
 
-    private bool bZoomedIn;
+    private Button _idCardBtn;
+    private Button _ermBtn;
+    private Button _suudiBtn;
+
+    private bool _bZoomedIn;
 
     private void Awake()
     {
-        collider = GetComponent<BoxCollider2D>();
-        mouse = FindFirstObjectByType<MouseInputProvider>();
-        mouse.Clicked += MouseOnClicked;
+        _collider = GetComponent<CapsuleCollider2D>();
+        _mouse = FindFirstObjectByType<MouseInputProvider>();
+        _mouse.Clicked += MouseOnClicked;
 
         GameEvent.current.onZoomOutTriggered += ZoomOut;
         GameEvent.current.onRequestedZoomOut += GlobalZoomOut;
-        MainCamera = Camera.main;
+        mainCamera = Camera.main;
+    }
+
+    private void Start()
+    {
+        _idCardBtn = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(b => b.name == "IDCardTestButton");
+        _ermBtn = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(b => b.name == "ERMTestButton");
+        _suudiBtn = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .FirstOrDefault(b => b.name == "SuudiButton");
     }
 
     private void MouseOnClicked()
     {
-        if (collider.OverlapPoint(mouse.WorldPosition))
+        // Ignore click if hovering any of the buttons
+        if ((_idCardBtn != null && _mouse.IsPointerOverUI(_idCardBtn.gameObject)) ||
+            (_ermBtn != null && _mouse.IsPointerOverUI(_ermBtn.gameObject)) ||
+            (_suudiBtn != null && _mouse.IsPointerOverUI(_suudiBtn.gameObject)))
+            return;
+        
+        if (_collider.OverlapPoint(_mouse.WorldPosition))
         {
             GameEvent.current.RequestZoomOut();
             ZoomIn();
@@ -35,11 +57,11 @@ public class Selectable : MonoBehaviour
 
     public void ZoomIn()
     {
-        bZoomedIn=true;
+        _bZoomedIn=true;
         visitorCamera.enabled = true;
-        MainCamera.enabled = false;
+        mainCamera.enabled = false;
         visitorPanel.SetActive(true);
-        mouse.SetCamera(visitorCamera);
+        _mouse.SetCamera(visitorCamera);
 
         //pass this visitor as gameobject
         GameEvent.current.ZoomedIn(gameObject);
@@ -47,16 +69,16 @@ public class Selectable : MonoBehaviour
 
     public void ZoomOut()
     {
-        bZoomedIn = false;
-        MainCamera.enabled = true;
+        _bZoomedIn = false;
+        mainCamera.enabled = true;
         visitorCamera.enabled = false;
         visitorPanel.SetActive(false);
-        mouse.SetCamera(MainCamera);
+        _mouse.SetCamera(mainCamera);
     }
 
     private void GlobalZoomOut()
     {
-        if (bZoomedIn)
+        if (_bZoomedIn)
         {
             ZoomOut();
         }

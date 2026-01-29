@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class MouseInputProvider : MonoBehaviour
@@ -32,5 +34,18 @@ public class MouseInputProvider : MonoBehaviour
         {
             Clicked?.Invoke();
         }
+    }
+
+    public bool IsPointerOverUI(GameObject uiObject)
+    {
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        return results.Any(r => r.gameObject == uiObject);
     }
 }
