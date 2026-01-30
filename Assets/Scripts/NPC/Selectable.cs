@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,7 +24,7 @@ public class Selectable : MonoBehaviour
     {
         _collider = GetComponent<CapsuleCollider2D>();
         _mouse = FindFirstObjectByType<MouseInputProvider>();
-        _mouse.Clicked += MouseOnClicked;
+        // _mouse.Clicked += MouseOnClicked;
 
         GameEvent.current.onZoomOutTriggered += ZoomOut;
         GameEvent.current.onRequestedZoomOut += GlobalZoomOut;
@@ -40,19 +41,30 @@ public class Selectable : MonoBehaviour
             .FirstOrDefault(b => b.name == "SuudiButton");
     }
 
-    private void MouseOnClicked()
+    // private void MouseOnClicked()
+    // {
+    //     // Ignore click if hovering any of the buttons
+    //     if ((_idCardBtn != null && _mouse.IsPointerOverUI(_idCardBtn.gameObject)) ||
+    //         (_ermBtn != null && _mouse.IsPointerOverUI(_ermBtn.gameObject)) ||
+    //         (_suudiBtn != null && _mouse.IsPointerOverUI(_suudiBtn.gameObject)))
+    //         return;
+    //     
+    //     if (_collider.OverlapPoint(_mouse.WorldPosition))
+    //     {
+    //         GameEvent.current.RequestZoomOut();
+    //         ZoomIn();
+    //     }
+    // }
+
+    private void OnMouseUp()
     {
-        // Ignore click if hovering any of the buttons
         if ((_idCardBtn != null && _mouse.IsPointerOverUI(_idCardBtn.gameObject)) ||
             (_ermBtn != null && _mouse.IsPointerOverUI(_ermBtn.gameObject)) ||
             (_suudiBtn != null && _mouse.IsPointerOverUI(_suudiBtn.gameObject)))
             return;
         
-        if (_collider.OverlapPoint(_mouse.WorldPosition))
-        {
-            GameEvent.current.RequestZoomOut();
-            ZoomIn();
-        }
+        GameEvent.current.RequestZoomOut();
+        ZoomIn();
     }
 
     public void ZoomIn()

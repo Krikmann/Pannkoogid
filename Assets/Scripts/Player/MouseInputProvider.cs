@@ -28,12 +28,10 @@ public class MouseInputProvider : MonoBehaviour
         WorldPosition = currentCamera.ScreenToWorldPoint(value.Get<Vector2>());
     }
 
-    private void OnInteract(InputValue _)
+    private void OnInteract(InputValue value)
     {
-        if(!bPaused)
-        {
-            Clicked?.Invoke();
-        }
+        if (bPaused) return;
+        Clicked?.Invoke();
     }
 
     public bool IsPointerOverUI(GameObject uiObject)
