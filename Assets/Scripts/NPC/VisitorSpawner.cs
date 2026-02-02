@@ -26,7 +26,7 @@ public class VisitorSpawner : MonoBehaviour
         {
             GameObject visitor = Instantiate(visitorPrefab);
             visitor.transform.position = GetRandomPointInBounds(visitorBounds);
-            visitor.GetComponent<Selectable>().visitorPanel = visitorPanel;
+            visitor.GetComponent<VisitorSelector>().visitorPanel = visitorPanel;
             NPCParent npc = visitor.GetComponent<NPCParent>();
             npc.outsideCollider = visitorBounds;
             npc.impostorTells = tells;

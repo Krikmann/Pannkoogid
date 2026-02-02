@@ -900,7 +900,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4860152842808278861}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: Suudi
+        m_MethodName: StartSyydiAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -946,10 +946,10 @@ RectTransform:
   - {fileID: 3323801503601030592}
   m_Father: {fileID: 2320104642951235166}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -134.08179, y: 0}
+  m_SizeDelta: {x: 268.16, y: 449.8966}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4791382082686974303
 CanvasRenderer:
@@ -1277,7 +1277,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4860152842808278861}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: Test2
+        m_MethodName: OnIDCardButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1410,7 +1410,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4860152842808278861}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: Test1
+        m_MethodName: OnErmTestButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1618,7 +1618,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4860152842808278861}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: CloseIDCard
+        m_MethodName: OnZoomOutButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1795,8 +1795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c572c812b62da2f4a9cb1bc069d84def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  visitor: {fileID: 0}
-  CharacterImage: {fileID: 5553501024807956327}
-  IdCardText: {fileID: 2474377642649553017}
-  IDCardPanel: {fileID: 506891357349077502}
-  SyydiPanel: {fileID: 2469297728674091249}
+  idCardCharacterImage: {fileID: 5553501024807956327}
+  idCardText: {fileID: 2474377642649553017}
+  idCardPanel: {fileID: 506891357349077502}
+  syydiPanel: {fileID: 2469297728674091249}
+  isZoomedIn: 0

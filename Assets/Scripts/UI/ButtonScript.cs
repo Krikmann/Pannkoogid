@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -7,101 +6,106 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
-    public GameObject visitor;
-    public Image CharacterImage;
-    public TextMeshProUGUI IdCardText;
-    public GameObject IDCardPanel;
-    public GameObject SyydiPanel;
-    private bool IDCardOpen;
+    public static ButtonScript Instance;
+    private static readonly int Close = Animator.StringToHash("Close");
+    private static readonly int Open = Animator.StringToHash("Open");
+    private static readonly int Syydi = Animator.StringToHash("Syydi");
 
-    private int guessesDone = 0;
+    private GameObject _visitor;
+    public Image idCardCharacterImage;
+    public TextMeshProUGUI idCardText;
+    public GameObject idCardPanel;
+    public GameObject syydiPanel;
+    private bool _idCardOpen;
+
+    private int _guessesDone;
+    public bool isZoomedIn;
 
 
     private void Awake()
     {
-        GameEvent.current.onZoomedIn += SetCurrentVisitor;
-        GameEvent.current.onRequestedZoomOut += CloseIDCard;
-    }
-
-    private void OnDestroy()
-    {
-        if (GameEvent.current != null)
-        {
-            GameEvent.current.onZoomedIn -= SetCurrentVisitor;
-            GameEvent.current.onRequestedZoomOut -= CloseIDCard;
-        }
+        Instance = this;
     }
 
     private void Start()
     {
-        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
-        IDCardPanel.transform.localPosition = new Vector3(0, 0, 0);
+        idCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        idCardPanel.transform.localPosition = new Vector3(0, 0, 0);
+        gameObject.SetActive(false);
     }
 
-    private void SetCurrentVisitor(GameObject vis)
+    public void SetCurrentVisitor(GameObject vis)
     {
-        visitor = vis;
+        _visitor = vis;
         SpriteRenderer sr = vis.GetComponentInChildren<SpriteRenderer>();
-        if (sr != null) CharacterImage.sprite = sr.sprite;
+        if (sr != null)
+            idCardCharacterImage.sprite = sr.sprite;
 
         NPCParent npc = vis.GetComponent<NPCParent>();
-        IdCardText.text = npc.visitorName;
+        idCardText.text = npc.visitorName;
+    }
+
+    public void OnZoomOutButtonClicked()
+    {
+        _visitor.GetComponent<VisitorSelector>().ZoomOut();
+        isZoomedIn = false;
     }
 
 
-    public void Test1()
+    public void OnErmTestButtonClicked()
     {
-        NPCParent npc = visitor.GetComponent<NPCParent>();
-        if (npc.sussyBoolList[NPCParent.ErmTestIndex])
-        {
-            GlobalReferences.audioManager.playFakeERM();
-        }
-        else
-        {
-            GlobalReferences.audioManager.playERM();
-        }
+        NPCParent npc = _visitor.GetComponent<NPCParent>();
+        if (npc.sussyBoolList[NPCParent.ErmTestIndex]) GlobalReferences.audioManager.playFakeERM();
+        else GlobalReferences.audioManager.playERM();
     }
 
-    public void Test2()
+    public void OnIDCardButtonClicked()
     {
-        Animator animator = IDCardPanel.GetComponent<Animator>();
-        if (IDCardOpen) animator.SetTrigger("Close");
-        else animator.SetTrigger("Open");
-        IDCardOpen = !IDCardOpen;
+        Animator animator = idCardPanel.GetComponent<Animator>();
+        if (_idCardOpen) animator.SetTrigger(Close);
+        else animator.SetTrigger(Open);
+        _idCardOpen = !_idCardOpen;
     }
 
     public void CloseIDCard()
     {
-        IDCardPanel.transform.localScale = new Vector3(0, 0, 0);
-        IDCardPanel.transform.localPosition = new Vector3(0, 0, 0);
-        IDCardOpen = false;
+        idCardPanel.transform.localScale = new Vector3(0, 0, 0);
+        idCardPanel.transform.localPosition = new Vector3(0, 0, 0);
+        _idCardOpen = false;
+    }
+
+
+    public void StartSyydiAnimation()
+    {
+        syydiPanel.SetActive(true);
+        Animator animator = syydiPanel.GetComponent<Animator>();
+        animator.SetTrigger(Syydi);
     }
 
     public void SyydiAnimationOver()
     {
-        SyydiPanel.SetActive(false);
+        syydiPanel.SetActive(false);
 
-        if (visitor.GetComponent<NPCParent>().isImpostor) // WIN
+        if (_visitor.GetComponent<NPCParent>().isImpostor) // WIN
         {
             GlobalReferences.audioManager.playCORRECT();
             StartCoroutine(WaitForAudioToFinishWin());
         }
         else // LOSE
         {
-            if (guessesDone == 2) //3rd guess lose
+            if (_guessesDone == 2) //3rd guess lose
             {
-                guessesDone = 0;
+                _guessesDone = 0;
                 GlobalReferences.audioManager.playFAHHH();
                 StartCoroutine(WaitForAudioToFinishLose());
             }
             else
             {
                 GlobalReferences.audioManager.playINCORRECT();
-                guessesDone++;
+                _guessesDone++;
             }
         }
     }
-
 
     IEnumerator WaitForAudioToFinishLose()
     {
@@ -115,10 +119,8 @@ public class ButtonScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // Load next scene
     }
 
-    public void Suudi()
+    public GameObject GetVisitor()
     {
-        SyydiPanel.SetActive(true);
-        Animator animator = SyydiPanel.GetComponent<Animator>();
-        animator.SetTrigger("Syydi");
+        return _visitor;
     }
 }
